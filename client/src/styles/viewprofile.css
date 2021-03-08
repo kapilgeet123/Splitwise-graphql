@@ -1,0 +1,224 @@
+.wide-fields input[type=text], .wide-fields input[type=tel], .wide-fields input[type=email], .wide-fields input[type=password]{
+    width: 220px;
+  }
+  .static.input{
+    margin-bottom: 15px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  .dynamic.input{
+    display: none;
+  }
+  .identities-container{
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .identities-container label{
+    font-size: inherit;
+  }
+
+  .identities-list {
+    width: 100%;
+  }
+
+  .identities-list td{
+    padding: 5px 3px;
+  }
+
+  .identity .identity-email{
+    color: #888;
+    text-align: left;
+  }
+
+  .identity.primary .identity-email{
+    color: #000;
+  }
+
+  .identity {
+    margin-bottom: 10px;
+  }
+
+  .identity.new h4{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    color: #333 !important;
+  }
+
+  .identity .delete {
+    color: #c00;
+    font-size: 20px;
+  }
+  .identity .actions {
+    text-align: right;
+  }
+
+  .confirm-remove {
+    border: 1px solid #ccc;
+  }
+
+  .confirm-remove td {
+    padding: 10px;
+  }
+
+  .identity .primary-radio {
+    width: 10px;
+  }
+
+  .identity-title{
+    display: inline;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .identities-list .label-success{
+    font-size: 90%;
+  }
+  .identities-list input[type=text], .identities-list input[type=password], .identities-list input[type=email]{
+    width: 190px;
+    width: calc(100% - 12px);
+  }
+
+  .confirm-remove .remove-current-password{
+    margin: 5px 0 10px;
+  }
+  .row{
+    margin-top: 20px; margin-bottom: 15px;
+  }
+  .avatar
+  {
+    margin: 10px 0 5px;
+    max-width: 200px
+  }
+  .identities{
+    display:none;
+  }
+  .newexpense{
+    font-size: 12px; color: #999; margin: -6px 0 5px
+  }
+
+  .formcss{
+    display:flex;
+}
+.header
+{
+    backgroundColor: '#50E3C2';
+        justifyContent: 'space-around';
+        height: 50
+}
+
+.left{
+    flex: 1;
+}
+.body
+{
+   flex: 5;
+}
+.right {
+    flex: 1
+}
+.buttonSave {
+    backgroundColor: '#FF7A5A';
+    height: 40;
+    width: 90;
+    justifyContent: 'center';
+}
+.textSave {
+    fontSize: 18;
+    paddingBottom: 5;
+}
+.content {
+    flex: 1;
+    margin: 10;
+    flexDirection: 'column';
+}
+.image{
+    alignItems: 'center';
+    justifyContent: 'flex-end';
+    width: 150;
+    height: 150;
+    borderRadius:40
+}
+.imageButton{
+    fontSize: 100;
+    opacity: 0.5;
+}
+.form {
+    flexDirection: 'column';
+    justifyContent: 'center';
+    alignItems: 'stretch';
+    marginRight: 15;
+    marginBottom: 10
+}
+.input {
+    height: 50;
+}
+.friendList {
+    flex: 5;
+    marginLeft: 12;
+    marginRight: 12;
+    marginBottom: 20;
+}
+.selectTextBox{
+    flex: 5;
+    marginLeft: 12;
+}
+.selectText {
+    fontSize: 18;
+    fontWeight: 'bold';
+    color: 'grey';
+}
+.content{
+    alignItems: 'center';
+     flex: 2;
+}
+.profile
+{
+    height : "200";
+    width : "200";
+}
+.label1
+{
+    font-size: 24px; 
+    line-height: 140%; 
+    margin: 16px 0 5px
+}
+.form-control{
+    font-size: 32px; 
+    height: 42px
+}
+.members
+{
+    margin-bottom: 10px
+}
+.invite
+{
+    font-size: 12px; line-height: 16px; color: #999; margin: -2px 0 12px;height: 10px;margin-bottom: 10px
+}
+.invitelink
+{
+    font-size: 14px;
+    height: 20px; 
+    width: 260px; 
+    margin: 0
+}
+.add
+{
+    display: block; margin: 15px 0 10px; font-size: 13px; line-height: 13px
+}
+.image{
+    height:300;
+    width:300;
+    float: left;
+    margin-right: 25px;
+}
+.imageholder
+{
+    
+}

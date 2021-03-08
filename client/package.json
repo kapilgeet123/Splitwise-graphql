@@ -1,0 +1,45 @@
+{
+  "name": "splitwise",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@codler/react-native-keyboard-aware-scroll-view": "^1.0.1",
+    "axios": "^0.19.0",
+    "jsonwebtoken": "^8.5.1",
+    "material-ui": "^0.20.2",
+    "native-base": "^2.15.2",
+    "react": "^16.8.6",
+    "react-chips": "^0.8.0",
+    "react-dom": "^16.8.6",
+    "react-native": "^0.63.4",
+    "react-native-web": "^0.15.0",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "save": "^2.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,761 @@
+ <div>
+  <form>
+  <div class="row">
+      <div class="span3 columns" style="width: 200px">
+        <img class="picture-frame" src="https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange2-200px.png">
+  </form>
+  </div>
+  <div class="span3 columns" style="width: 200px">
+        <img class="picture-frame" src="https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange2-200px.png">
+        <div>
+          <div style="margin: 10px 0 5px">
+            Change your avatar
+          </div>
+          <!-- FireFox is dumb and Rails won't pass on the 'size' parameter -->
+          <input id="user_avatar" name="user[avatar]" style="max-width: 200px" size="10" type="file">
+        </div>
+      </div>
+      <div class="span3 columns wide-fields" style="width: 240px">
+  <div class="clearfix">
+    <label for="user_name">Your name</label>
+    <div class="input static name">
+      <strong>GEETIKA KAPIL</strong>
+      &nbsp;
+      <a href="#" onclick="$('.dynamic.name').show(); $('.static.name').hide(); return false">
+        <i class="icon-pencil"></i> Edit
+      </a>
+    </div>
+    <div class="input dynamic name">
+      <input autocomplete="off" type="text" value="GEETIKA KAPIL" name="user[name]" id="user_name">
+    </div>
+  </div>
+  <div class="clearfix">
+    <label for="user_email">Your email address</label>
+    <div class="input static email">
+      <strong>geetikakapil123@gmail.com</strong>
+      &nbsp;
+      <a href="#" onclick="$('.identities').show(); $('.static.email').hide(); return false">
+        <i class="icon-pencil"></i> Edit
+      </a>
+    </div>
+  </div>
+  <div class="identities" style="display:none;"></div>
+  / <div class="identities-container">
+//   <table class="identities-list">
+    
+//       <tbody><tr class="identity confirmed primary ">
+        
+          
+//           <td class="primary-radio">
+//             <input type="radio" id="identity71078072" value="geetikakapil123@gmail.com" name="primary" checked="true'">
+//           </td>
+//           <td class="identity-email">
+//             <label class="identity-title" for="identity71078072">
+//               geetikakapil123@gmail.com
+//             </label>
+
+//               <span class="label label-success">Primary</span>
+            
+//           </td>
+
+//           <td class="actions">
+            
+//           </td>
+        
+//       </tr>
+
+//       <tr class="add-identity">
+//         <td colspan="3">
+//           <a href="#" class="btn btn-mint">Add a new email</a>
+//         </td>
+//       </tr>
+    
+//   </tbody></table>
+// </div>
+// </div>
+
+
+
+}
+
+
+
+
+  
+
+  
+
+  
+
+ 
+
+ 
+
+  
+
+
+
+            
+
+            
+//          
+
+    
+//       
+
+//   <div class="clearfix">
+//     <label for="user_phone">Your phone number</label>
+//     <div class="input static phone">
+//       <strong>None</strong>
+//       &nbsp;
+//       <a href="#" onclick="$('.dynamic.phone').show(); $('.static.phone').hide(); return false">
+//         <i class="icon-pencil"></i> Edit
+//       </a>
+//     </div>
+//     <div class="input dynamic phone">
+//       <select name="user[phone_region]" id="user_phone_region" style="margin-bottom: 0" data-convert="no"><option value="AF">🇦🇫 Afghanistan +93</option>
+// <option value="AL">🇦🇱 Albania +355</option>
+// <option value="DZ">🇩🇿 Algeria +213</option>
+// <option value="AS">🇦🇸 American Samoa +1</option>
+// <option value="AD">🇦🇩 Andorra +376</option>
+// <option value="AO">🇦🇴 Angola +244</option>
+// <option value="AI">🇦🇮 Anguilla +1</option>
+// <option value="AG">🇦🇬 Antigua &amp; Barbuda +1</option>
+// <option value="AR">🇦🇷 Argentina +54</option>
+// <option value="AM">🇦🇲 Armenia +374</option>
+// <option value="AW">🇦🇼 Aruba +297</option>
+// <option value="AC">🇦🇨 Ascension Island +247</option>
+// <option value="AU">🇦🇺 Australia +61</option>
+// <option value="AT">🇦🇹 Austria +43</option>
+// <option value="AZ">🇦🇿 Azerbaijan +994</option>
+// <option value="BS">🇧🇸 Bahamas +1</option>
+// <option value="BH">🇧🇭 Bahrain +973</option>
+// <option value="BD">🇧🇩 Bangladesh +880</option>
+// <option value="BB">🇧🇧 Barbados +1</option>
+// <option value="BY">🇧🇾 Belarus +375</option>
+// <option value="BE">🇧🇪 Belgium +32</option>
+// <option value="BZ">🇧🇿 Belize +501</option>
+// <option value="BJ">🇧🇯 Benin +229</option>
+// <option value="BM">🇧🇲 Bermuda +1</option>
+// <option value="BT">🇧🇹 Bhutan +975</option>
+// <option value="BO">🇧🇴 Bolivia +591</option>
+// <option value="BA">🇧🇦 Bosnia &amp; Herzegovina +387</option>
+// <option value="BW">🇧🇼 Botswana +267</option>
+// <option value="BR">🇧🇷 Brazil +55</option>
+// <option value="IO">🇮🇴 British Indian Ocean Territory +246</option>
+// <option value="VG">🇻🇬 British Virgin Islands +1</option>
+// <option value="BN">🇧🇳 Brunei +673</option>
+// <option value="BG">🇧🇬 Bulgaria +359</option>
+// <option value="BF">🇧🇫 Burkina Faso +226</option>
+// <option value="BI">🇧🇮 Burundi +257</option>
+// <option value="KH">🇰🇭 Cambodia +855</option>
+// <option value="CM">🇨🇲 Cameroon +237</option>
+// <option value="CA">🇨🇦 Canada +1</option>
+// <option value="CV">🇨🇻 Cape Verde +238</option>
+// <option value="BQ">🇧🇶 Caribbean Netherlands +599</option>
+// <option value="KY">🇰🇾 Cayman Islands +1</option>
+// <option value="CF">🇨🇫 Central African Republic +236</option>
+// <option value="TD">🇹🇩 Chad +235</option>
+// <option value="CL">🇨🇱 Chile +56</option>
+// <option value="CN">🇨🇳 China +86</option>
+// <option value="CX">🇨🇽 Christmas Island +61</option>
+// <option value="CC">🇨🇨 Cocos (Keeling) Islands +61</option>
+// <option value="CO">🇨🇴 Colombia +57</option>
+// <option value="KM">🇰🇲 Comoros +269</option>
+// <option value="CG">🇨🇬 Congo - Brazzaville +242</option>
+// <option value="CD">🇨🇩 Congo - Kinshasa +243</option>
+// <option value="CK">🇨🇰 Cook Islands +682</option>
+// <option value="CR">🇨🇷 Costa Rica +506</option>
+// <option value="HR">🇭🇷 Croatia +385</option>
+// <option value="CU">🇨🇺 Cuba +53</option>
+// <option value="CW">🇨🇼 Curaçao +599</option>
+// <option value="CY">🇨🇾 Cyprus +357</option>
+// <option value="CZ">🇨🇿 Czech Republic +420</option>
+// <option value="CI">🇨🇮 Côte d’Ivoire +225</option>
+// <option value="DK">🇩🇰 Denmark +45</option>
+// <option value="DJ">🇩🇯 Djibouti +253</option>
+// <option value="DM">🇩🇲 Dominica +1</option>
+// <option value="DO">🇩🇴 Dominican Republic +1</option>
+// <option value="EC">🇪🇨 Ecuador +593</option>
+// <option value="EG">🇪🇬 Egypt +20</option>
+// <option value="SV">🇸🇻 El Salvador +503</option>
+// <option value="GQ">🇬🇶 Equatorial Guinea +240</option>
+// <option value="ER">🇪🇷 Eritrea +291</option>
+// <option value="EE">🇪🇪 Estonia +372</option>
+// <option value="ET">🇪🇹 Ethiopia +251</option>
+// <option value="FK">🇫🇰 Falkland Islands +500</option>
+// <option value="FO">🇫🇴 Faroe Islands +298</option>
+// <option value="FJ">🇫🇯 Fiji +679</option>
+// <option value="FI">🇫🇮 Finland +358</option>
+// <option value="FR">🇫🇷 France +33</option>
+// <option value="GF">🇬🇫 French Guiana +594</option>
+// <option value="PF">🇵🇫 French Polynesia +689</option>
+// <option value="GA">🇬🇦 Gabon +241</option>
+// <option value="GM">🇬🇲 Gambia +220</option>
+// <option value="GE">🇬🇪 Georgia +995</option>
+// <option value="DE">🇩🇪 Germany +49</option>
+// <option value="GH">🇬🇭 Ghana +233</option>
+// <option value="GI">🇬🇮 Gibraltar +350</option>
+// <option value="GR">🇬🇷 Greece +30</option>
+// <option value="GL">🇬🇱 Greenland +299</option>
+// <option value="GD">🇬🇩 Grenada +1</option>
+// <option value="GP">🇬🇵 Guadeloupe +590</option>
+// <option value="GU">🇬🇺 Guam +1</option>
+// <option value="GT">🇬🇹 Guatemala +502</option>
+// <option value="GG">🇬🇬 Guernsey +44</option>
+// <option value="GN">🇬🇳 Guinea +224</option>
+// <option value="GW">🇬🇼 Guinea-Bissau +245</option>
+// <option value="GY">🇬🇾 Guyana +592</option>
+// <option value="HT">🇭🇹 Haiti +509</option>
+// <option value="HN">🇭🇳 Honduras +504</option>
+// <option value="HK">🇭🇰 Hong Kong SAR China +852</option>
+// <option value="HU">🇭🇺 Hungary +36</option>
+// <option value="IS">🇮🇸 Iceland +354</option>
+// <option value="IN">🇮🇳 India +91</option>
+// <option value="ID">🇮🇩 Indonesia +62</option>
+// <option value="IR">🇮🇷 Iran +98</option>
+// <option value="IQ">🇮🇶 Iraq +964</option>
+// <option value="IE">🇮🇪 Ireland +353</option>
+// <option value="IM">🇮🇲 Isle of Man +44</option>
+// <option value="IL">🇮🇱 Israel +972</option>
+// <option value="IT">🇮🇹 Italy +39</option>
+// <option value="JM">🇯🇲 Jamaica +1</option>
+// <option value="JP">🇯🇵 Japan +81</option>
+// <option value="JE">🇯🇪 Jersey +44</option>
+// <option value="JO">🇯🇴 Jordan +962</option>
+// <option value="KZ">🇰🇿 Kazakhstan +7</option>
+// <option value="KE">🇰🇪 Kenya +254</option>
+// <option value="KI">🇰🇮 Kiribati +686</option>
+// <option value="XK">🇽🇰 Kosovo +383</option>
+// <option value="KW">🇰🇼 Kuwait +965</option>
+// <option value="KG">🇰🇬 Kyrgyzstan +996</option>
+// <option value="LA">🇱🇦 Laos +856</option>
+// <option value="LV">🇱🇻 Latvia +371</option>
+// <option value="LB">🇱🇧 Lebanon +961</option>
+// <option value="LS">🇱🇸 Lesotho +266</option>
+// <option value="LR">🇱🇷 Liberia +231</option>
+// <option value="LY">🇱🇾 Libya +218</option>
+// <option value="LI">🇱🇮 Liechtenstein +423</option>
+// <option value="LT">🇱🇹 Lithuania +370</option>
+// <option value="LU">🇱🇺 Luxembourg +352</option>
+// <option value="MO">🇲🇴 Macau SAR China +853</option>
+// <option value="MK">🇲🇰 Macedonia +389</option>
+// <option value="MG">🇲🇬 Madagascar +261</option>
+// <option value="MW">🇲🇼 Malawi +265</option>
+// <option value="MY">🇲🇾 Malaysia +60</option>
+// <option value="MV">🇲🇻 Maldives +960</option>
+// <option value="ML">🇲🇱 Mali +223</option>
+// <option value="MT">🇲🇹 Malta +356</option>
+// <option value="MH">🇲🇭 Marshall Islands +692</option>
+// <option value="MQ">🇲🇶 Martinique +596</option>
+// <option value="MR">🇲🇷 Mauritania +222</option>
+// <option value="MU">🇲🇺 Mauritius +230</option>
+// <option value="YT">🇾🇹 Mayotte +262</option>
+// <option value="MX">🇲🇽 Mexico +52</option>
+// <option value="FM">🇫🇲 Micronesia +691</option>
+// <option value="MD">🇲🇩 Moldova +373</option>
+// <option value="MC">🇲🇨 Monaco +377</option>
+// <option value="MN">🇲🇳 Mongolia +976</option>
+// <option value="ME">🇲🇪 Montenegro +382</option>
+// <option value="MS">🇲🇸 Montserrat +1</option>
+// <option value="MA">🇲🇦 Morocco +212</option>
+// <option value="MZ">🇲🇿 Mozambique +258</option>
+// <option value="MM">🇲🇲 Myanmar (Burma) +95</option>
+// <option value="NA">🇳🇦 Namibia +264</option>
+// <option value="NR">🇳🇷 Nauru +674</option>
+// <option value="NP">🇳🇵 Nepal +977</option>
+// <option value="NL">🇳🇱 Netherlands +31</option>
+// <option value="NC">🇳🇨 New Caledonia +687</option>
+// <option value="NZ">🇳🇿 New Zealand +64</option>
+// <option value="NI">🇳🇮 Nicaragua +505</option>
+// <option value="NE">🇳🇪 Niger +227</option>
+// <option value="NG">🇳🇬 Nigeria +234</option>
+// <option value="NU">🇳🇺 Niue +683</option>
+// <option value="NF">🇳🇫 Norfolk Island +672</option>
+// <option value="KP">🇰🇵 North Korea +850</option>
+// <option value="MP">🇲🇵 Northern Mariana Islands +1</option>
+// <option value="NO">🇳🇴 Norway +47</option>
+// <option value="OM">🇴🇲 Oman +968</option>
+// <option value="PK">🇵🇰 Pakistan +92</option>
+// <option value="PW">🇵🇼 Palau +680</option>
+// <option value="PS">🇵🇸 Palestinian Territories +970</option>
+// <option value="PA">🇵🇦 Panama +507</option>
+// <option value="PG">🇵🇬 Papua New Guinea +675</option>
+// <option value="PY">🇵🇾 Paraguay +595</option>
+// <option value="PE">🇵🇪 Peru +51</option>
+// <option value="PH">🇵🇭 Philippines +63</option>
+// <option value="PL">🇵🇱 Poland +48</option>
+// <option value="PT">🇵🇹 Portugal +351</option>
+// <option value="PR">🇵🇷 Puerto Rico +1</option>
+// <option value="QA">🇶🇦 Qatar +974</option>
+// <option value="RO">🇷🇴 Romania +40</option>
+// <option value="RU">🇷🇺 Russia +7</option>
+// <option value="RW">🇷🇼 Rwanda +250</option>
+// <option value="RE">🇷🇪 Réunion +262</option>
+// <option value="SX">🇸🇽 Saint Martin +1</option>
+// <option value="WS">🇼🇸 Samoa +685</option>
+// <option value="SM">🇸🇲 San Marino +378</option>
+// <option value="SA">🇸🇦 Saudi Arabia +966</option>
+// <option value="SN">🇸🇳 Senegal +221</option>
+// <option value="RS">🇷🇸 Serbia +381</option>
+// <option value="SC">🇸🇨 Seychelles +248</option>
+// <option value="SL">🇸🇱 Sierra Leone +232</option>
+// <option value="SG">🇸🇬 Singapore +65</option>
+// <option value="SK">🇸🇰 Slovakia +421</option>
+// <option value="SI">🇸🇮 Slovenia +386</option>
+// <option value="SB">🇸🇧 Solomon Islands +677</option>
+// <option value="SO">🇸🇴 Somalia +252</option>
+// <option value="ZA">🇿🇦 South Africa +27</option>
+// <option value="KR">🇰🇷 South Korea +82</option>
+// <option value="SS">🇸🇸 South Sudan +211</option>
+// <option value="ES">🇪🇸 Spain +34</option>
+// <option value="LK">🇱🇰 Sri Lanka +94</option>
+// <option value="BL">🇧🇱 St. Barthélemy +590</option>
+// <option value="SH">🇸🇭 St. Helena +290</option>
+// <option value="KN">🇰🇳 St. Kitts &amp; Nevis +1</option>
+// <option value="LC">🇱🇨 St. Lucia +1</option>
+// <option value="MF">🇲🇫 St. Martin +590</option>
+// <option value="PM">🇵🇲 St. Pierre &amp; Miquelon +508</option>
+// <option value="VC">🇻🇨 St. Vincent &amp; Grenadines +1</option>
+// <option value="SD">🇸🇩 Sudan +249</option>
+// <option value="SR">🇸🇷 Suriname +597</option>
+// <option value="SJ">🇸🇯 Svalbard &amp; Jan Mayen +47</option>
+// <option value="SZ">🇸🇿 Swaziland +268</option>
+// <option value="SE">🇸🇪 Sweden +46</option>
+// <option value="CH">🇨🇭 Switzerland +41</option>
+// <option value="SY">🇸🇾 Syria +963</option>
+// <option value="ST">🇸🇹 São Tomé &amp; Príncipe +239</option>
+// <option value="TW">🇹🇼 Taiwan +886</option>
+// <option value="TJ">🇹🇯 Tajikistan +992</option>
+// <option value="TZ">🇹🇿 Tanzania +255</option>
+// <option value="TH">🇹🇭 Thailand +66</option>
+// <option value="TL">🇹🇱 Timor-Leste +670</option>
+// <option value="TG">🇹🇬 Togo +228</option>
+// <option value="TK">🇹🇰 Tokelau +690</option>
+// <option value="TO">🇹🇴 Tonga +676</option>
+// <option value="TT">🇹🇹 Trinidad &amp; Tobago +1</option>
+// <option value="TA">🇹🇦 Tristan da Cunha +290</option>
+// <option value="TN">🇹🇳 Tunisia +216</option>
+// <option value="TR">🇹🇷 Turkey +90</option>
+// <option value="TM">🇹🇲 Turkmenistan +993</option>
+// <option value="TC">🇹🇨 Turks &amp; Caicos Islands +1</option>
+// <option value="TV">🇹🇻 Tuvalu +688</option>
+// <option value="VI">🇻🇮 U.S. Virgin Islands +1</option>
+// <option value="UG">🇺🇬 Uganda +256</option>
+// <option value="UA">🇺🇦 Ukraine +380</option>
+// <option value="AE">🇦🇪 United Arab Emirates +971</option>
+// <option value="GB">🇬🇧 United Kingdom +44</option>
+// <option selected="selected" value="US">🇺🇸 United States +1</option>
+// <option value="UY">🇺🇾 Uruguay +598</option>
+// <option value="UZ">🇺🇿 Uzbekistan +998</option>
+// <option value="VU">🇻🇺 Vanuatu +678</option>
+// <option value="VA">🇻🇦 Vatican City +39</option>
+// <option value="VE">🇻🇪 Venezuela +58</option>
+// <option value="VN">🇻🇳 Vietnam +84</option>
+// <option value="WF">🇼🇫 Wallis &amp; Futuna +681</option>
+// <option value="EH">🇪🇭 Western Sahara +212</option>
+// <option value="001">🌐 World +979</option>
+// <option value="YE">🇾🇪 Yemen +967</option>
+// <option value="ZM">🇿🇲 Zambia +260</option>
+// <option value="ZW">🇿🇼 Zimbabwe +263</option>
+// <option value="AX">🇦🇽 Åland Islands +358</option></select>
+//       <br>
+//       <input autocomplete="off" type="tel" name="user[phone]" id="user_phone">
+//     </div>
+//   </div>
+
+//   <div class="clearfix password-change-link">
+//     <label for="user_password">Your password</label>
+//     <div class="input">
+//       ••••••••••
+//       &nbsp;
+//       <a onclick="$('.password-change-link').html(&quot;\u003cdiv class=\&quot;clearfix\&quot;\u003e\n  \u003clabel for=\&quot;current_password\&quot;\u003eYour current password\u003c/label\u003e\n  \u003cdiv class=\&quot;input\&quot;\u003e\n    \u003cinput autocomplete=\&quot;off\&quot; type=\&quot;password\&quot; name=\&quot;user[current_password]\&quot; id=\&quot;user_current_password\&quot; /\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&quot;clearfix\&quot;\u003e\n  \u003clabel for=\&quot;user_password\&quot;\u003eCreate a new password\u003c/label\u003e\n  \u003cdiv class=\&quot;input\&quot;\u003e\n    \u003cinput autocomplete=\&quot;off\&quot; type=\&quot;password\&quot; name=\&quot;user[password]\&quot; id=\&quot;user_password\&quot; /\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n&quot;); return false" href="#">
+//         <i class="icon-pencil"></i> Edit
+// </a>    </div>
+//   </div>
+// </div>
+
+// <div class="span3 columns">
+
+//   <div class="clearfix">
+//     <label for="user_default_currency">Your default currency</label>
+//     <div style="font-size: 12px; color: #999; margin: -6px 0 5px">(for new expenses)</div>
+//     <div class="input">
+//       <select class="modernized" name="user[default_currency]" id="user_default_currency"><option value="AED">AED (DH)</option>
+// <option value="AFN">AFN (Afs)</option>
+// <option value="ALL">ALL (L)</option>
+// <option value="AMD">AMD (AMD)</option>
+// <option value="ANG">ANG (NAf)</option>
+// <option value="AOA">AOA (Kz)</option>
+// <option value="ARS">ARS ($)</option>
+// <option value="AUD">AUD ($)</option>
+// <option value="AWG">AWG (Afl.)</option>
+// <option value="AZN">AZN (m.)</option>
+// <option value="BAM">BAM (KM)</option>
+// <option value="BBD">BBD ($)</option>
+// <option value="BDT">BDT (Tk)</option>
+// <option value="BGN">BGN (BGN)</option>
+// <option value="BHD">BHD (BD)</option>
+// <option value="BIF">BIF (FBu)</option>
+// <option value="BND">BND (B$)</option>
+// <option value="BOB">BOB (Bs.)</option>
+// <option value="BRL">BRL (R$)</option>
+// <option value="BTC">BTC (฿)</option>
+// <option value="BTN">BTN (Nu.)</option>
+// <option value="BWP">BWP (P)</option>
+// <option value="BYN">BYN (Br)</option>
+// <option value="BYR">BYR (BYR)</option>
+// <option value="BZD">BZD (BZ$)</option>
+// <option value="CAD">CAD ($)</option>
+// <option value="CDF">CDF (FC)</option>
+// <option value="CHF">CHF (Fr.)</option>
+// <option value="CLP">CLP ($)</option>
+// <option value="CMG">CMG (CMg)</option>
+// <option value="CNY">CNY (¥)</option>
+// <option value="COP">COP ($)</option>
+// <option value="CRC">CRC (₡)</option>
+// <option value="CUC">CUC (CUC$)</option>
+// <option value="CUP">CUP ($)</option>
+// <option value="CVE">CVE ($)</option>
+// <option value="CZK">CZK (Kč)</option>
+// <option value="DJF">DJF (Fdj )</option>
+// <option value="DKK">DKK (kr)</option>
+// <option value="DOP">DOP ($)</option>
+// <option value="DZD">DZD (DA)</option>
+// <option value="EGP">EGP (E£)</option>
+// <option value="ETB">ETB (Br)</option>
+// <option value="EUR">EUR (€)</option>
+// <option value="FJD">FJD ($)</option>
+// <option value="GBP">GBP (£)</option>
+// <option value="GEL">GEL (GEL)</option>
+// <option value="GHS">GHS (GH₵)</option>
+// <option value="GMD">GMD (D)</option>
+// <option value="GTQ">GTQ (Q)</option>
+// <option value="GYD">GYD (G$)</option>
+// <option value="HKD">HKD ($)</option>
+// <option value="HNL">HNL (L)</option>
+// <option value="HRK">HRK (HRK)</option>
+// <option value="HTG">HTG (G)</option>
+// <option value="HUF">HUF (Ft)</option>
+// <option value="IDR">IDR (Rp )</option>
+// <option value="ILS">ILS (₪)</option>
+// <option value="INR">INR (₹)</option>
+// <option value="IQD">IQD (IQD)</option>
+// <option value="IRR">IRR (IRR)</option>
+// <option value="ISK">ISK (kr)</option>
+// <option value="JMD">JMD (J$)</option>
+// <option value="JOD">JOD (JOD)</option>
+// <option value="JPY">JPY (¥)</option>
+// <option value="KES">KES (KSh)</option>
+// <option value="KGS">KGS (KGS)</option>
+// <option value="KHR">KHR (៛)</option>
+// <option value="KMF">KMF (CF)</option>
+// <option value="KRW">KRW (₩)</option>
+// <option value="KWD">KWD (KWD)</option>
+// <option value="KYD">KYD (CI$)</option>
+// <option value="KZT">KZT (₸)</option>
+// <option value="LAK">LAK (₭)</option>
+// <option value="LBP">LBP (ل.ل)</option>
+// <option value="LKR">LKR (Rs. )</option>
+// <option value="LTL">LTL (Lt )</option>
+// <option value="LYD">LYD (LD)</option>
+// <option value="MAD">MAD (MAD)</option>
+// <option value="MDL">MDL (MDL)</option>
+// <option value="MGA">MGA (Ar)</option>
+// <option value="MKD">MKD (ден)</option>
+// <option value="MMK">MMK (K)</option>
+// <option value="MNT">MNT (₮)</option>
+// <option value="MOP">MOP (MOP$)</option>
+// <option value="MUR">MUR (₨)</option>
+// <option value="MVR">MVR (MVR)</option>
+// <option value="MWK">MWK (K)</option>
+// <option value="MXN">MXN ($)</option>
+// <option value="MYR">MYR (RM)</option>
+// <option value="MZN">MZN (MT)</option>
+// <option value="NAD">NAD ($)</option>
+// <option value="NGN">NGN (₦)</option>
+// <option value="NIO">NIO (C$)</option>
+// <option value="NOK">NOK (kr)</option>
+// <option value="NPR">NPR (Rs. )</option>
+// <option value="NZD">NZD ($)</option>
+// <option value="OMR">OMR (OMR)</option>
+// <option value="PAB">PAB (B/. )</option>
+// <option value="PEN">PEN (S/. )</option>
+// <option value="PGK">PGK (K)</option>
+// <option value="PHP">PHP (₱)</option>
+// <option value="PKR">PKR (Rs)</option>
+// <option value="PLN">PLN (PLN)</option>
+// <option value="PYG">PYG (₲)</option>
+// <option value="QAR">QAR (QR)</option>
+// <option value="RON">RON (RON)</option>
+// <option value="RSD">RSD (RSD)</option>
+// <option value="RUB">RUB (₽)</option>
+// <option value="RWF">RWF (FRw)</option>
+// <option value="SAR">SAR (SR)</option>
+// <option value="SBD">SBD (SI$)</option>
+// <option value="SCR">SCR (SR)</option>
+// <option value="SEK">SEK (kr)</option>
+// <option value="SGD">SGD ($)</option>
+// <option value="SLL">SLL (Le)</option>
+// <option value="SRD">SRD ($)</option>
+// <option value="STD">STD (Db)</option>
+// <option value="STN">STN (nDb)</option>
+// <option value="SYP">SYP (£S)</option>
+// <option value="SZL">SZL (E)</option>
+// <option value="THB">THB (฿)</option>
+// <option value="TJS">TJS (TJS)</option>
+// <option value="TMT">TMT (T)</option>
+// <option value="TND">TND (DT)</option>
+// <option value="TOP">TOP (T$)</option>
+// <option value="TRY">TRY (TL)</option>
+// <option value="TTD">TTD (TT$)</option>
+// <option value="TWD">TWD (NT$)</option>
+// <option value="TZS">TZS (TZS)</option>
+// <option value="UAH">UAH (₴)</option>
+// <option value="UGX">UGX (USh)</option>
+// <option selected="selected" value="USD">USD ($)</option>
+// <option value="UYU">UYU ($)</option>
+// <option value="UZS">UZS (UZS)</option>
+// <option value="VEF">VEF (Bs)</option>
+// <option value="VND">VND (₫)</option>
+// <option value="VUV">VUV (Vt)</option>
+// <option value="WST">WST (WS$)</option>
+// <option value="XAF">XAF (CFA)</option>
+// <option value="XCD">XCD (EC$)</option>
+// <option value="XOF">XOF (CFA)</option>
+// <option value="XPF">XPF (F)</option>
+// <option value="YER">YER (YER)</option>
+// <option value="ZAR">ZAR (R)</option>
+// <option value="ZMW">ZMW (ZMW)</option>
+// <option value="ZWL">ZWL (Z$)</option></select>
+//     </div>
+//   </div>
+
+//   <div class="clearfix">
+//     <label for="user_time_zone">Your time zone</label>
+//     <div class="input">
+//       <select class="modernized" name="user[time_zone]" id="user_time_zone"><option value="International Date Line West">(GMT-12:00) International Date Line West</option>
+// <option value="American Samoa">(GMT-11:00) American Samoa</option>
+// <option value="Midway Island">(GMT-11:00) Midway Island</option>
+// <option value="Hawaii">(GMT-10:00) Hawaii</option>
+// <option value="Alaska">(GMT-09:00) Alaska</option>
+// <option selected="selected" value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+// <option value="Tijuana">(GMT-08:00) Tijuana</option>
+// <option value="Arizona">(GMT-07:00) Arizona</option>
+// <option value="Chihuahua">(GMT-07:00) Chihuahua</option>
+// <option value="Mazatlan">(GMT-07:00) Mazatlan</option>
+// <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+// <option value="Central America">(GMT-06:00) Central America</option>
+// <option value="Central Time (US &amp; Canada)">(GMT-06:00) Central Time (US &amp; Canada)</option>
+// <option value="Guadalajara">(GMT-06:00) Guadalajara</option>
+// <option value="Mexico City">(GMT-06:00) Mexico City</option>
+// <option value="Monterrey">(GMT-06:00) Monterrey</option>
+// <option value="Saskatchewan">(GMT-06:00) Saskatchewan</option>
+// <option value="Bogota">(GMT-05:00) Bogota</option>
+// <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+// <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+// <option value="Lima">(GMT-05:00) Lima</option>
+// <option value="Quito">(GMT-05:00) Quito</option>
+// <option value="Atlantic Time (Canada)">(GMT-04:00) Atlantic Time (Canada)</option>
+// <option value="Caracas">(GMT-04:00) Caracas</option>
+// <option value="Georgetown">(GMT-04:00) Georgetown</option>
+// <option value="La Paz">(GMT-04:00) La Paz</option>
+// <option value="Puerto Rico">(GMT-04:00) Puerto Rico</option>
+// <option value="Santiago">(GMT-04:00) Santiago</option>
+// <option value="Newfoundland">(GMT-03:30) Newfoundland</option>
+// <option value="Brasilia">(GMT-03:00) Brasilia</option>
+// <option value="Buenos Aires">(GMT-03:00) Buenos Aires</option>
+// <option value="Greenland">(GMT-03:00) Greenland</option>
+// <option value="Montevideo">(GMT-03:00) Montevideo</option>
+// <option value="Mid-Atlantic">(GMT-02:00) Mid-Atlantic</option>
+// <option value="Azores">(GMT-01:00) Azores</option>
+// <option value="Cape Verde Is.">(GMT-01:00) Cape Verde Is.</option>
+// <option value="Edinburgh">(GMT+00:00) Edinburgh</option>
+// <option value="Lisbon">(GMT+00:00) Lisbon</option>
+// <option value="London">(GMT+00:00) London</option>
+// <option value="Monrovia">(GMT+00:00) Monrovia</option>
+// <option value="UTC">(GMT+00:00) UTC</option>
+// <option value="Amsterdam">(GMT+01:00) Amsterdam</option>
+// <option value="Belgrade">(GMT+01:00) Belgrade</option>
+// <option value="Berlin">(GMT+01:00) Berlin</option>
+// <option value="Bern">(GMT+01:00) Bern</option>
+// <option value="Bratislava">(GMT+01:00) Bratislava</option>
+// <option value="Brussels">(GMT+01:00) Brussels</option>
+// <option value="Budapest">(GMT+01:00) Budapest</option>
+// <option value="Casablanca">(GMT+01:00) Casablanca</option>
+// <option value="Copenhagen">(GMT+01:00) Copenhagen</option>
+// <option value="Dublin">(GMT+01:00) Dublin</option>
+// <option value="Ljubljana">(GMT+01:00) Ljubljana</option>
+// <option value="Madrid">(GMT+01:00) Madrid</option>
+// <option value="Paris">(GMT+01:00) Paris</option>
+// <option value="Prague">(GMT+01:00) Prague</option>
+// <option value="Rome">(GMT+01:00) Rome</option>
+// <option value="Sarajevo">(GMT+01:00) Sarajevo</option>
+// <option value="Skopje">(GMT+01:00) Skopje</option>
+// <option value="Stockholm">(GMT+01:00) Stockholm</option>
+// <option value="Vienna">(GMT+01:00) Vienna</option>
+// <option value="Warsaw">(GMT+01:00) Warsaw</option>
+// <option value="West Central Africa">(GMT+01:00) West Central Africa</option>
+// <option value="Zagreb">(GMT+01:00) Zagreb</option>
+// <option value="Zurich">(GMT+01:00) Zurich</option>
+// <option value="Athens">(GMT+02:00) Athens</option>
+// <option value="Bucharest">(GMT+02:00) Bucharest</option>
+// <option value="Cairo">(GMT+02:00) Cairo</option>
+// <option value="Harare">(GMT+02:00) Harare</option>
+// <option value="Helsinki">(GMT+02:00) Helsinki</option>
+// <option value="Jerusalem">(GMT+02:00) Jerusalem</option>
+// <option value="Kaliningrad">(GMT+02:00) Kaliningrad</option>
+// <option value="Kyiv">(GMT+02:00) Kyiv</option>
+// <option value="Pretoria">(GMT+02:00) Pretoria</option>
+// <option value="Riga">(GMT+02:00) Riga</option>
+// <option value="Sofia">(GMT+02:00) Sofia</option>
+// <option value="Tallinn">(GMT+02:00) Tallinn</option>
+// <option value="Vilnius">(GMT+02:00) Vilnius</option>
+// <option value="Baghdad">(GMT+03:00) Baghdad</option>
+// <option value="Istanbul">(GMT+03:00) Istanbul</option>
+// <option value="Kuwait">(GMT+03:00) Kuwait</option>
+// <option value="Minsk">(GMT+03:00) Minsk</option>
+// <option value="Moscow">(GMT+03:00) Moscow</option>
+// <option value="Nairobi">(GMT+03:00) Nairobi</option>
+// <option value="Riyadh">(GMT+03:00) Riyadh</option>
+// <option value="St. Petersburg">(GMT+03:00) St. Petersburg</option>
+// <option value="Volgograd">(GMT+03:00) Volgograd</option>
+// <option value="Tehran">(GMT+03:30) Tehran</option>
+// <option value="Abu Dhabi">(GMT+04:00) Abu Dhabi</option>
+// <option value="Baku">(GMT+04:00) Baku</option>
+// <option value="Muscat">(GMT+04:00) Muscat</option>
+// <option value="Samara">(GMT+04:00) Samara</option>
+// <option value="Tbilisi">(GMT+04:00) Tbilisi</option>
+// <option value="Yerevan">(GMT+04:00) Yerevan</option>
+// <option value="Kabul">(GMT+04:30) Kabul</option>
+// <option value="Ekaterinburg">(GMT+05:00) Ekaterinburg</option>
+// <option value="Islamabad">(GMT+05:00) Islamabad</option>
+// <option value="Karachi">(GMT+05:00) Karachi</option>
+// <option value="Tashkent">(GMT+05:00) Tashkent</option>
+// <option value="Chennai">(GMT+05:30) Chennai</option>
+// <option value="Kolkata">(GMT+05:30) Kolkata</option>
+// <option value="Mumbai">(GMT+05:30) Mumbai</option>
+// <option value="New Delhi">(GMT+05:30) New Delhi</option>
+// <option value="Sri Jayawardenepura">(GMT+05:30) Sri Jayawardenepura</option>
+// <option value="Kathmandu">(GMT+05:45) Kathmandu</option>
+// <option value="Almaty">(GMT+06:00) Almaty</option>
+// <option value="Astana">(GMT+06:00) Astana</option>
+// <option value="Dhaka">(GMT+06:00) Dhaka</option>
+// <option value="Urumqi">(GMT+06:00) Urumqi</option>
+// <option value="Rangoon">(GMT+06:30) Rangoon</option>
+// <option value="Bangkok">(GMT+07:00) Bangkok</option>
+// <option value="Hanoi">(GMT+07:00) Hanoi</option>
+// <option value="Jakarta">(GMT+07:00) Jakarta</option>
+// <option value="Krasnoyarsk">(GMT+07:00) Krasnoyarsk</option>
+// <option value="Novosibirsk">(GMT+07:00) Novosibirsk</option>
+// <option value="Beijing">(GMT+08:00) Beijing</option>
+// <option value="Chongqing">(GMT+08:00) Chongqing</option>
+// <option value="Hong Kong">(GMT+08:00) Hong Kong</option>
+// <option value="Irkutsk">(GMT+08:00) Irkutsk</option>
+// <option value="Kuala Lumpur">(GMT+08:00) Kuala Lumpur</option>
+// <option value="Perth">(GMT+08:00) Perth</option>
+// <option value="Singapore">(GMT+08:00) Singapore</option>
+// <option value="Taipei">(GMT+08:00) Taipei</option>
+// <option value="Ulaanbaatar">(GMT+08:00) Ulaanbaatar</option>
+// <option value="Osaka">(GMT+09:00) Osaka</option>
+// <option value="Sapporo">(GMT+09:00) Sapporo</option>
+// <option value="Seoul">(GMT+09:00) Seoul</option>
+// <option value="Tokyo">(GMT+09:00) Tokyo</option>
+// <option value="Yakutsk">(GMT+09:00) Yakutsk</option>
+// <option value="Adelaide">(GMT+09:30) Adelaide</option>
+// <option value="Darwin">(GMT+09:30) Darwin</option>
+// <option value="Brisbane">(GMT+10:00) Brisbane</option>
+// <option value="Canberra">(GMT+10:00) Canberra</option>
+// <option value="Guam">(GMT+10:00) Guam</option>
+// <option value="Hobart">(GMT+10:00) Hobart</option>
+// <option value="Melbourne">(GMT+10:00) Melbourne</option>
+// <option value="Port Moresby">(GMT+10:00) Port Moresby</option>
+// <option value="Sydney">(GMT+10:00) Sydney</option>
+// <option value="Vladivostok">(GMT+10:00) Vladivostok</option>
+// <option value="Magadan">(GMT+11:00) Magadan</option>
+// <option value="New Caledonia">(GMT+11:00) New Caledonia</option>
+// <option value="Solomon Is.">(GMT+11:00) Solomon Is.</option>
+// <option value="Srednekolymsk">(GMT+11:00) Srednekolymsk</option>
+// <option value="Auckland">(GMT+12:00) Auckland</option>
+// <option value="Fiji">(GMT+12:00) Fiji</option>
+// <option value="Kamchatka">(GMT+12:00) Kamchatka</option>
+// <option value="Marshall Is.">(GMT+12:00) Marshall Is.</option>
+// <option value="Wellington">(GMT+12:00) Wellington</option>
+// <option value="Chatham Is.">(GMT+12:45) Chatham Is.</option>
+// <option value="Nuku'alofa">(GMT+13:00) Nuku'alofa</option>
+// <option value="Samoa">(GMT+13:00) Samoa</option>
+// <option value="Tokelau Is.">(GMT+13:00) Tokelau Is.</option></select>
+//     </div>
+//   </div>
+
+//   <div class="clearfix">
+//     <label for="user_locale">Language</label>
+//     <div class="input">
+//       <select class="modernized" name="user[locale]" id="user_locale"><option selected="selected" value="en">English</option>
+// <option value="de">Deutsch</option>
+// <option value="es">Español</option>
+// <option value="fr">Français</option>
+// <option value="id">Bahasa Indonesia</option>
+// <option value="it">Italiano</option>
+// <option value="ja">日本語</option>
+// <option value="nl">Nederlands</option>
+// <option value="pt-BR">Português (Brasil)</option>
+// <option value="pt-PT">Português (Portugal)</option>
+// <option value="sv">Svenska</option>
+// <option value="th">ภาษาไทย</option>
+// <option value="emoji">😀</option></select>
+//     </div>
+//   </div>
+
+  
+// </div>
+
+
+
+
+//     </div>
+
+//     <div class="row">
+//       <div class="offset9 span3 columns" style="text-align: right">&nbsp;
+//         <input type="submit" name="commit" value="Save" class="btn btn-large btn-orange" style="margin-left: 10px" data-disable-with="Save">
+//       </div>
+//     </div>
+
+//     <hr>
+
+    
+
+    
+
+  
+
+          
+
+    
+          
+    
+
+       
+    
+      
+    
+//       <div class="span3 columns">
+//         <a class="btn btn-cancel" data-confirm="WARNING: this is not reversible. This feature DOES NOT convert currencies, it fixes accounts that are accidentally using more than one currency. If you are intentionally using multiple currencies DO NOT do this.
+
+// Would you like to change the currency code of ALL expenses with ALL of your groups and friends to USD?" rel="nofollow" data-method="put" href="/users/37530958?set_all_expenses_to_default_currency=USD">Set all expenses to USD</a>
+     
+
+    
+  
+
+    
+              
+
+    
+      
+//     </div>
+// </form>
+
+
+
+// </div> */}
