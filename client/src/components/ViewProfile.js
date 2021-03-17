@@ -11,14 +11,86 @@ class VProfile extends React.Component {
     super(props);
     this.state = {
       userdata: [],
+     disabled: true,
+      
     };
+ 
   }
+  handleEditusername() {
+    this.setState( {disabled: !this.state.disabled} )
+
+  } 
+ 
+  handleEditphone() {
+    this.setState( {disabled: !this.state.disabled} )
+
+  } 
+  handleEditpassword() {
+    this.setState( {disabled: !this.state.disabled} )
+
+  } 
+  handleEditemail() {
+    this.setState( {disabled: !this.state.disabled} )
+
+  } 
+  
+
+  defaultcurrency(currency)
+  {
+    console.log("indside default cuurecy")
+    let Data     = ["USD", "KWD", "BHD", "GBP", "EUR", "CAD"];
+    var index = Data.indexOf(currency);
+    console.log(currency);
+    console.log(index);
+    if (index > -1) {
+       Data.splice(index, 1);
+}
+    console.log(Data);
+  
+return Data;
+    };
+  
+
+    defaultlanguage(language)
+  {
+    console.log("indside default language")
+    let Data     = ["Deutsch", "Español", "Français", "Bahasa Indonesia", "Italiano", "Nederlands"];
+    var index = Data.indexOf(language);
+    
+    console.log(index);
+    if (index > -1) {
+       Data.splice(index, 1);
+}
+    console.log(Data);
+  
+return Data;
+    };
 
 
+    defaulttimezone(timezone)
+  {
+    console.log("indside default timezone")
+    let Data     = ["(GMT-11:00) American Samoa", "(GMT-11:00) Midway Island", "(GMT-10:00) Hawaii", "(GMT-09:00) Alaska", "(GMT-08:00) Tijuana", "(GMT-07:00) Arizona"];
+    var index = Data.indexOf(timezone);
+  
+    console.log(index);
+    if (index > -1) {
+       Data.splice(index, 1);
+}
+    console.log(Data);
+  
+return Data;
+    };
   // componentDidMount() {
+    
+  //  return(
+
+    
+   
   //   console.log("in componenetdid mount")
-  //   axios.post(`${serverIp}:${serverPort}/updateUserData`, { emailId: localStorage.getItem('emailId') })
+  //   axios.post(`${serverIp}:${serverPort}/getUserData`, { emailID: localStorage.getItem('emailId') })
   //     .then((response) => {
+  //       //username,phone number,currency,time zone,language
   //       console.log(response.data);
   //       this.setState({
   //         userdata: response.data,
@@ -31,13 +103,33 @@ class VProfile extends React.Component {
 
   render()
   {
-   return(
+   const email = localStorage.getItem('email_current');
+   const   username = localStorage.getItem('username');
+    const contact_phone = localStorage.getItem('contact_phone');
+   const  password = localStorage.getItem("password");
+   const currency = localStorage.getItem("currency")
+  const   timezone =localStorage.getItem("timezone");
+   const  language = localStorage.getItem("language");
+    
+  const array =  this.defaultcurrency(currency);
+  const array1 =  this.defaultlanguage(language);
+  const array2 = this.defaulttimezone(timezone);
+ console.log(array);
 
+ console.log(this.props.event);
+ const values = [];
+ //{colour} = this.props.match.params;
+//  this.props.event.map((eachEvent) => {
+//     values.push({eachEvent});
+//  }); 
+ console.log(values);
+   return(
+    
      <div>
        <h1>Your Account</h1>
        <div class="imageholder">
 <img className = "profile" src={require('../images/logo.png')} alt="" srcset=""class="image"/>
-      
+
     <div class="avatar">
           Change your avatar       
         <input id="user_avatar" name="user[avatar]"  size="10" type="file"/>
@@ -47,8 +139,17 @@ class VProfile extends React.Component {
 <div class="clearfix">
   <label for="user_name">Your name</label>
   <div class="input static name">
-    <strong>GEETIKA KAPIL</strong>   
-      <i class="icon-pencil"></i> Edit
+  <input
+               value= {(this.state.disabled)? username : ""}
+                  type="text"
+                  
+                  id = "username1"
+                  disabled = {(this.state.disabled)? "disabled" : ""}
+                  class="name"
+                required/>
+    <button onClick ={this.handleEditusername.bind(this)}>Edit</button>
+    {/* <strong id="username">{username} </strong>   */}
+    
     
   </div>
   <div class="input dynamic name">
@@ -58,64 +159,40 @@ class VProfile extends React.Component {
 <div class="clearfix">
   <label for="user_email">Your email address</label>
   <div class="input static email">
-    <strong>geetikakapil123@gmail.com</strong>
+  <input
+               value= {(this.state.disabled)? email  : ""}
+                  type="email"
+                  
+                  id = "email1"
+                  disabled = {(this.state.disabled)? "disabled" : ""}
+                  class="email"
+                required/>
    
     
-      <i class="icon-pencil"></i> Edit
+   <button onClick ={this.handleEditemail.bind(this)}>Edit</button>
     
   </div>
 </div>
 <div class="identities"></div>
- <div class="identities-container">
- <table class="identities-list">
-  
-     <tbody><tr class="identity confirmed primary ">
-      
-        
-        <td class="primary-radio">
-          <input type="radio" id="identity71078072" value="geetikakapil123@gmail.com" name="primary" checked="true'"/>
-       </td>
-        <td class="identity-email">
-          <label class="identity-title" for="identity71078072">
-             geetikakapil123@gmail.com
-         </label>
-
-            <span class="label label-success">Primary</span>
-          
-        </td>
-
-         <td class="actions">
-          
-        </td>
-      
-     </tr>
-
-     <tr class="add-identity">
-      <td colspan="3">
-        
-       </td>
-     </tr>
-  
- </tbody></table>
-</div>       
+     
   <div class="clearfix">
     <label for="user_phone">Your phone number</label>
     <div class="input static phone">
-      <strong>None</strong>
+    <input
+               value= {(this.state.disabled)? contact_phone  : ""}
+                  type="phone"
+                  
+                  id = "phone"
+                  disabled = {(this.state.disabled)? "disabled" : ""}
+                  class="contactphone"
+                required/>
     
-     
-        <i class="icon-pencil"></i> Edit
+    <button onClick ={this.handleEditphone.bind(this)}>Edit</button>
+       
       
     </div>
     <div class="input dynamic phone">
-      <select name="user[phone_region]" id="user_phone_region" data-convert="no"><option value="AF">🇦🇫 Afghanistan +93</option>
-<option value="AL">🇦🇱 Albania +355</option>
-<option value="DZ">🇩🇿 Algeria +213</option>
-<option value="AS">🇦🇸 American Samoa +1</option>
-<option value="AD">🇦🇩 Andorra +376</option>
-<option value="AO">🇦🇴 Angola +244</option>
-<option value="AI">🇦🇮 Anguilla +1</option>
-</select>
+
       <div>
       <input autocomplete="off" type="tel" name="user[phone]" id="user_phone"/>
       
@@ -125,10 +202,17 @@ class VProfile extends React.Component {
   <div class="clearfix password-change-link">
     <label for="user_password">Your password</label>
     <div class="input">
-   
+    <input
+               value= {(this.state.disabled)? password  : ""}
+                  type="password"
+                  
+                  id = "password"
+                  disabled = {(this.state.disabled)? "disabled" : ""}
+                  class="password"
+                required/>
      
   
-        <i class="icon-pencil"></i> Edit
+    <button onClick ={this.handleEditpassword.bind(this)}>Edit</button>
     </div>
   </div>
 </div>
@@ -137,13 +221,15 @@ class VProfile extends React.Component {
 
   <div class="clearfix">
     <label for="user_default_currency">Your default currency</label>
-    <div class="newexpense">(for new expenses)</div>
+    
     <div class="input">
-      <select class="modernized" name="user[default_currency]" id="user_default_currency"><option value="AED">AED (DH)</option>
-<option value="AFN">AFN (Afs)</option>
-<option value="ALL">ALL (L)</option>
-<option value="AMD">AMD (AMD)</option>
-<option value="ANG">ANG (NAf)</option>
+  <select class="modernized" name="user[default_currency]" id="user_default_currency">
+    <option> {currency} </option>
+  {array.map((text) => (
+                <option value={text}>
+                    {text}
+                </option>
+            ))}
 </select>
   </div>
   </div>
@@ -159,13 +245,16 @@ class VProfile extends React.Component {
    <div class="clearfix">
     <label for="user_locale">Language</label>
      <div class="input">
-      <select class="modernized" name="user[locale]" id="user_locale"><option selected="selected" value="en">English</option>
- <option value="de">Deutsch</option>
- <option value="es">Español</option>
-  <option value="fr">Français</option>
- <option value="id">Bahasa Indonesia</option>
- <option value="it">Italiano</option>
-</select>
+      <select class="modernized" name="user[locale]" id="user_locale">
+        <option selected="selected" value="en">{language}  </option>
+        {array1.map((text) => (
+                <option value={text}>
+                    {text}
+                </option>
+            ))}
+
+      
+       </select>
 
 
     </div>
@@ -175,13 +264,14 @@ class VProfile extends React.Component {
      <div class="clearfix">
      <label for="user_time_zone">Your time zone</label>
      <div class="input">
-       <select class="modernized" name="user[time_zone]" id="user_time_zone"><option value="International Date Line West">(GMT-12:00) International Date Line West</option>
- <option value="American Samoa">(GMT-11:00) American Samoa</option>
-<option value="Midway Island">(GMT-11:00) Midway Island</option>
- <option value="Hawaii">(GMT-10:00) Hawaii</option>
- <option value="Alaska">(GMT-09:00) Alaska</option>
-<option selected="selected" value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
- <option value="Tijuana">(GMT-08:00) Tijuana</option>
+       <select class="modernized" name="user[time_zone]" id="user_time_zone">
+  <option selected="selected" >{timezone}</option>
+  {array2.map((text) => (
+                <option value={text}>
+                    {text}
+                </option>
+            ))}
+ 
 </select>
 </div>
 </div>
@@ -194,7 +284,7 @@ class VProfile extends React.Component {
 
     <div class="row">
       <div class="offset9 span3 columns" >&nbsp;
-        <input type="submit" name="commit" value="Save" class="btn btn-large btn-orange"  data-disable-with="Save"/>
+        <input type="submit" name="commit" value="Save"  class="btn btn-large btn-orange"  data-disable-with="Save"/>
        </div>
      </div>
 

@@ -3,6 +3,9 @@ import '../styles/signup.css';
 import { withRouter } from "react-router-dom";
 import axios from 'axios';
 import { serverIp, serverPort } from '../components/config';
+import SettleUp from '../components/Dashboard/popups/settleUp';
+//import ViewProfile from './ViewProfile'
+import { Hint } from 'react-autocomplete-hint';
 //import {View, StyleSheet, ImageBackground, Alert} from 'react-native';
 //import {Container, Header, Content, Left, Body, Right, Button, Icon, Title, Text, Item, Form, Label, Input, Toast} from 'native-base';
 //import SelectMultiple from 'react-native-select-multiple';
@@ -21,48 +24,115 @@ var obj = {};
         createdate:'',
         grouppicture: '',
         createdby: '',
-        email1:'',
-        email2:'',
-        email3:'',
-            };
+        email:'',
+        name:'',
+       user:[{name:"",email:"",invite:"no"}],
+       autosuggestname : [],
+       autosuggestemail :[],
+      mainarray :[]
       
+      };
+   
       this.onChangeUserNameHandler = this.onChangeUserNameHandler.bind(this);
       
    
       this.onSignUpSubmit = this.onSignUpSubmit.bind(this);
-      this.onChangeEmail1Handler = this.onChangeEmail1Handler.bind(this);
-      this.onChangeEmail2Handler = this.onChangeEmail2Handler.bind(this);
-      this.onChangeEmail3Handler = this.onChangeEmail3Handler.bind(this);
+ //     this.onChangeEmailHandler = this.onChangeEmailHandler.bind(this);
+
+      
     }
     // both company name and student name change will call this handler
   
+componentDidMount(){
+  //const mainarray=[];
+  axios.post(`${serverIp}:${serverPort}/getuserdata`)
+  .then((response) => {
+    console.log('AddUsergroup Response Data');
+    console.log(response.data);
+  if (response.data === 'Error') {
+      window.alert('Error while querying the Database');
+    } else {
+      window.alert('Successfully Added the Usergroup'); 
+      
+      var hintArrayname = []
+      var hintArrayemail = []
+      var mainarrayy = []
+      response.data.map(a => hintArrayname.push(a.username))
+      response.data.map(a => hintArrayemail.push(a.emailId))
+      response.data.map(a => mainarrayy.push(a.username))
+     // response.data.map(a => mainarray.push(a))
+      this.setState({
+       autosuggestname : hintArrayname,
+        mainarray : mainarrayy
+      });
+      this.setState({
+        autosuggestemail : hintArrayemail,
+      });
+    }
+  }).catch((err) => {
+    console.log(`In catch of axios post call to get user data ${err}`);
+    window.alert('Error in Add USERgroup API axios Post call');
+ });
+ //console.log({thus.state.mainarray});
+ 
+// console.log(this.state)
+// const happy =[{a:1}];
+// console.log(happy);
 
- onChangeUserNameHandler(e) {
+}
+  
+    // eventList() {
+    //   // for each object in exercise we are returning an Exercise component and passing three props
+    //   return this.state.mainarray.map((eachEvent) => <SettleUp event={eachEvent} key={eachEvent.event_id} />);
+    // }
+ 
+    onChangeUserNameHandler(e) {
    this.setState({
      groupname: e.target.value,
    });
  }
+  
+ 
 
  
- 
- onChangeEmail1Handler(e){
-  this.setState({
-       email1: e.target.value,
-     });
-   }
- 
+//  onChangeEmailHandler(e){
+//   this.setState({
+//        email: e.target.value,
+//      });
+//    }
  
  
- onChangeEmail2Handler(e){
-  this.setState({
-       email2: e.target.value,
-     });
-   }
- onChangeEmail3Handler(e){
-this.setState({
-     email3: e.target.value,
-   });
+ 
+ 
+
+ addUser =(e) =>{
+   this.setState((prevState)  => ({
+    user: [...prevState.user, {name:"",email:"",invite:"no"}],
+ // user: [...prevState.user]
+   }));
  }
+
+ handleChange = (e) => {
+  
+  if (["email"].includes(e.target.className) ) {
+    console.log(e.target.className);
+   
+    let user = [...this.state.user]
+    user[e.target.dataset.id] = {
+      [e.target.className]: e.target.value,
+      ["invite"]: "yes"
+  };
+   // console.log(user)
+   // user[e.target.dataset.id][e.target.className] = "geetika.kapil@sjsu.edu"
+    this.setState({ user }, () => console.log(this.state.user))
+  } else {
+    this.setState({ [e.target.name]: e.target.value.toUpperCase() })
+  }
+
+}
+
+
+
  onSignUpSubmit(e) {
    e.preventDefault();
    const data = {
@@ -70,8 +140,8 @@ this.setState({
       createdby : localStorage.getItem('email_current'),
       createdate:Date().toLocaleString()
         };
-      console.log(data.createdby);
-     
+      console.log(data);
+      
     axios.defaults.withCredentials = true;
     axios.post(`${serverIp}:${serverPort}/AddGroup`, data)
       .then((response) => {
@@ -91,21 +161,32 @@ this.setState({
         console.log(`In catch of axios post call to add group ${err}`);
         window.alert('Error in Add group API axios Post call');
       });
-      // const data1 = {
-      //   groupname: this.state.groupname.toLowerCase(),
-      //   email1:this.state.email1,
-      //   email2:this.state.email2,
-      //   email3:this.state.email3
-      //     };
-      const data1 = {
-        groupname: this.state.groupname.toLowerCase(),
-        email1:'geetika.kapil@sjsu.edu',
-        email2:'sfsdfs@gmail.com',
-        email3:'dfsdf@gmail.com'
-          };
-     console.log(data1);
+
+
+
+      const userdata = [];
+      userdata.push([localStorage.getItem('email_current'),"no"]);
+      console.log(userdata);
+       console.log(this.state.user)
+       this.state.user.forEach((eachObj) => {
+      userdata.push([eachObj.email,eachObj.invite]);
+     });
+       console.log(userdata);
+      const output=[]
+     let tmp;
+sessionStorage.setItem('groupname',this.state.groupname);
+
+     for(let i = 0; i < userdata.length; i++){  
+       tmp = {groupname : this.state.groupname,email: userdata[i][0],invite : userdata[i][1] };
+       output.push(tmp);      
+             
+    }
+ 
+     console.log(output)
+ 
+       sessionStorage.setItem('group_length',output.length);
      
-      axios.post(`${serverIp}:${serverPort}/AddUserGroup`, data1)
+      axios.post(`${serverIp}:${serverPort}/AddUserGroup`, output)
       .then((response) => {
         console.log('AddUsergroup Response Data');
         console.log(response.data);
@@ -118,18 +199,22 @@ this.setState({
       }).catch((err) => {
         console.log(`In catch of axios post call to add Usergroup ${err}`);
         window.alert('Error in Add USERgroup API axios Post call');
-      });
+     });
 
   }
    
    render()
+
      {
+     
+       let {user} =this.state
+       console.log(this.state.autocomplete);
+       this.state.mainarray.map((eachEvent) => <SettleUp event={eachEvent} />);
+  // this.state.mainarray.map((eachStudent) => {
+  // //console.log({eachStudent.username})
+  // });
 		 return(
          <div className = "container signup">
-
-    
-
-
      <div className = "signup-form">
        
 	   <div class="imageholder">
@@ -139,7 +224,7 @@ this.setState({
         <input type="file" name="group[avatar]" id="group_avatar" />
       </div>
 	  </div>
-       <form onSubmit={this.onSignUpSubmit}>
+       <form onSubmit={this.onSignUpSubmit} onChange={this.handleChange}>
 	   <h2>Start a group</h2>
     <div class="label1">
 		My Group shall be called
@@ -151,7 +236,7 @@ this.setState({
 	 <div class="invite">
 
               Tip: Lots of people to add? Send your friends an 
-			  <a href='#' onclick=" ">invite link</a>.
+			  <a href='#' onclick=" "> invite link</a>.
             </div>
 			<div id="invite_link_container" >
 				</div>
@@ -159,35 +244,59 @@ this.setState({
       
       
 
+        <a href="#"class="add"><button onClick={this.addUser}>+ Add a person</button></a>
 
 
-
-      <div>
-	  <input placeholder="Name" class="name"  onchange="" type="text" value="" name="" id="" />
-    <input placeholder="Email address " class="email"  onchange={this.onChangeEmail1Handler} type="email"  id="email1" required/>
+      {/* <div>
+	  <input placeholder="Name" class="name"   onchange={this.onChangeNameHandler} type="text"  id="name" required/>
+    <input placeholder="Email address " class="email"  onchange={this.onChangeEmailHandler} type="email"  id="email" required/>
       <a class="delete remove_nested_fields" onclick="" href="javascript:void(0)">×</a>
-
+   </div> */}
 
 
        
-</div>
-<div>
-<input placeholder="Name" class="name"  onchange="this.onChangeEmail2Handler" type="text" value="" name="" id="" />
-<input placeholder="Email address " class="email"  onchange={this.onChangeEmail2Handler} type="email"  id="email2" required/>
-<a class="delete remove_nested_fields" onclick="" href="">×</a>
-</div>
 
-<div>
-<input placeholder="Name" class="name"  onchange="aded&#39;))" type="text" value="" name="" id="" />
-<input placeholder="Email address " class="email"  onchange={this.onChangeEmail3Handler} type="email"  id="email3" required/>
-<a class="delete remove_nested_fields" onclick="" href="">×</a>
 
-</div>
+  <div>    
+	
+   {
+          user.map((val, idx)=> {
+            let userId = `name-${idx}`, emailId = `email-${idx}`,inviteId = `invite-${idx}`
+            return (
+              <div key={idx}>
+                <Hint options={this.state.autosuggestname} allowTabFill>
+                <input
+                placeholder="Name"
+                  type="text"
+                  name={userId}
+                  data-id={idx}
+                  id={userId}
+                 // value={user[idx].name}
+              //   onchange={this.onChangeNameHandler}
+                  class="name"
+                required/>
+                </Hint>
+               <Hint options={this.state.autosuggestemail} allowTabFill>
+                <input
+                placeholder="Email address "
+                  type="email"
+                  name={emailId}
+                  data-id={idx}
+                  id={emailId}
+                 // value={user[idx].email}
+                  class="email"
+              //    onchange={this.onChangeEmailHandler}
+                required/>
+                </Hint> 
+                  <input type="checkbox" name={inviteId} data-id={idx} id={inviteId} class="invite" onChange={this.handleCheck} />
       
-	 <a href="#"class="add">+ Add a person</a>
-
-	 
-
+                <a class="delete remove_nested_fields" onclick="" href="">×</a>
+              </div>
+            )
+          })
+        }
+	 </div>
+ 
    
  <button type="submit" className="btn">Confirm</button>
       </form>

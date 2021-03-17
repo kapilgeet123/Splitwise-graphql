@@ -11,10 +11,10 @@ import '../styles/dashHeader.css'
      
      <div className = "Dashfloat">
      <NavLink to = "/login"><button className = "logoutbtn" onClick = {()=>{
-       localStorage.removeItem('jwtToken');
+     
      }
      }>Log Out</button></NavLink>
-     <NavLink to = "/ViewProfile"><button className = "logoutbtn">View profile</button></NavLink>
+     <NavLink to = "/ViewProfile" ><button className = "logoutbtn">View profile</button></NavLink>
       
       {console.log("inside DashHeader")}
 

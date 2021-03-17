@@ -45,6 +45,28 @@ const adduser = (req, res, bcrypt, saltRounds, pool) => {
       }
     });
   };
+
+ 
+  const getuser = (req, res,pool) => {
+    console.log('Inside getusergroupdata module:');
+    let tableName = 'USERS';
+ 
+       
+            
+          searchSql = `Select username,emailId from ${tableName} `;
+        console.log(searchSql);
+          pool.query(searchSql, (insertError, result) => {
+            if (insertError) {
+              console.log(insertError);
+              res.send('Error');
+            }
+            console.log("fetched data from users table ");
+          res.send(result);
+       
+         });
+  }
+ 
+ 
   
-  exports.adduser = addduser;
-  
+  exports.adduser = adduser;
+  exports.getuser = getuser;

@@ -63,3 +63,9 @@
 
   .nav.pull-right
 {margin-left:10px;margin-right:0;white-space:nowrap;margin-bottom:0}
+
+
+.transaction
+{
+  display:flex;
+}

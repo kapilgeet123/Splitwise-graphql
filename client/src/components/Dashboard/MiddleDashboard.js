@@ -1,50 +1,102 @@
 import React from "react";
 import { connect } from "react-redux";
 import "../../styles/Dashboard.css";
-var exp = 0;
-var owe = [];
-var owed = [];
-function calculate(props){
-   exp = 0;
-   owe = [];
-   owed = [];
-   if(props.user.expensis){
-     console.log("****************************m kitni barri hu *********************************");
-   props.user.expensis.forEach(element => {
-if(element.data){
-  exp += parseInt(element.data.ammount);
-  //someone has to give you 
-      if(element.data.ammount>0){
-        
-        console.log("element.data.ammount>0")
-        owed.push(element);
-        console.log(owed);
-      }//u need to give
-      else if(element.data.ammount<0){
-        console.log("element.data.ammount<0");
-        // element.data.ammount = -(element.data.ammount);
-        owe.push(element);
-        // owe[owe.length].data.ammount = -( owe[owe.length].data.ammount );
-        console.log(owe);
-      }
-    }
-   });
+import axios from 'axios';
+import { serverIp, serverPort } from '../config';
+
+
+class Middle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      registeredStudents: [],
+       exp : 0,
+      owe : [],
+      owed : [],
+    };
+    this.calculate = this.calculate.bind(this);
+  // this.showGroup = this.showGroup.bind(this);
+   
+  }
+
+
+
+  componentDidMount() {
+    axios.post(`${serverIp}:${serverPort}/gettransactionsdatatotal`)
+  
+  .then((response) => {
+    console.log('Response data in componentDidMount');
+    console.log(response.data);
+    
+    this.setState({
+      registeredStudents: response.data,
+    });
+  }).catch((err) => {
+    console.log(`Error in componentDidMount of fetchdata: ${err}`);
+    window.alert('Error in connecting to server');
+  });
+    
+  }
+
+calculate(){
+  console.log("Inside calculate function")
+let values = [];
+let temp = 0;
+this.state.registeredStudents.map((values) => {
+  if(values.sum){
+    console.log(values.sum)
+    temp += values.sum;
+    console.log(temp);
+    //   //someone has to give you 
+           if(values.sum>0){
+            
+             console.log("element.data.ammount>0")
+            this.state.owed.push(values);
+            console.log(this.owed);
+          }//u need to give
+           else if(values.sum<0){
+           console.log("element.data.ammount<0");
+            values.sum = -(values.sum);
+             this.state.owe.push(values);
+    //         // owe[owe.length].data.ammount = -( owe[owe.length].data.ammount );
+             console.log(this.owe);
+          }
+        }
+        else
+        {
+         console.log("some error");
+        }
+
+});
+
+
+
   }
   // return exp;
-}
 
- const Middle = props => {
+
+
+
+ 
+
+
+
+
+render()
+{
+
+
   return (
-    <div className="Middle">
-      {calculate(props)}
+    <div className="Middlesd">
+     {this.calculate()}
       
       <div className="MidDash">
         <div className="DashHeader">
           <h3>Dashboard</h3>
-          <button className="btn float-right settle" onClick={props.settle}>
+          <button className="btn float-right settle" onClick={this.props.settle} >
             Settle up
           </button>
-          <button className="btn float-right expense" onClick={props.friend}>
+          <button className="btn float-right expense" onClick={this.props.friend}>
             Add an expense
           </button>
         </div>
@@ -52,15 +104,15 @@ if(element.data){
         <div className="total">
           <div className="fitting">
             <label htmlFor="">total balance</label>
-            <p className="green">$ {exp}</p>
+            <p className="green">$ {this.exp}</p>
           </div>
           <div className="fitting">
             <label htmlFor="">you owe</label>
-            <p style = {{color:"red"}}>$ {(exp<0)?exp:0}</p>
+            <p style = {{color:"red"}}>$ {(this.exp<0)?this.exp:0}</p>
           </div>
           <div className="fitting">
             <label htmlFor="">you are owed</label>
-            <p className="green">$ {(exp>0)?exp:0}</p>
+            <p className="green">$ {(this.exp>0)?this.exp:0}</p>
           </div>
         </div>
       </div>
@@ -78,16 +130,16 @@ if(element.data){
       <div className = "flex">
         <div className="float-left ml-3 borders">
           <ul>
-            {(owe.length == 0)?<li>You do not owe anything</li>:owe.map(value=>
+            {(this.state.owe.length == 0)?<li>You do not owe anything</li>:this.state.owe.map(value=>
              <li>
-             <img
+             {/* <img
                className="imgs"
                src={require("../../images/person-profile.png")}
                alt="" align="left"
-             />
+             /> */}
              <div className="inline">
-               <h5>{value.name}</h5>
-               <span>you owe ${-(value.data.ammount)}</span>
+               <h5>{value.email}</h5>
+               <span>you owe ${-(value.sum)}</span>
              </div>
            </li>
             )}
@@ -108,9 +160,9 @@ if(element.data){
 
 
         <div>
-          <ul>//u r not owed anything
-          {(owed.length == 0)?<li>You do not owe anything</li>:owed.map(value=>
-            <li>
+          <ul>
+          {(this.state.owed.length == 0)?<li>You do not owe anything</li>:this.state.owed.map(value=>
+            <li>  
             <img
               className="imgs"
               src={require("../../images/person-profile.png")}
@@ -118,8 +170,8 @@ if(element.data){
               align="left"
             />
             <div className="inline">
-              <h5>{value.name}</h5>
-              <span>owes you ${value.data.ammount}</span>
+              <h5>{value.email}</h5>
+              <span>owes you ${value.sum}</span>
             </div>
           </li>
             )}
@@ -143,14 +195,8 @@ if(element.data){
       </div>
     </div>
   );
+          }
 };
 
-const mapStateToProps = state => {
-  console.log("state is  ", state);
-  return {
-    user: state.user
-  };
-};
 
-const fn = connect(mapStateToProps);
-export default fn(Middle);
+export default Middle;

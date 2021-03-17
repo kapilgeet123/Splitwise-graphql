@@ -1,5 +1,6 @@
 import React from "react";
 export  const PaidBy = (props)=>{
+  
  return(
      <div className = "secondBox">
           <div className = "frnd-header">   
@@ -7,8 +8,8 @@ export  const PaidBy = (props)=>{
         </div>
         {console.log(props.list)}
         <ul className = "myList">
-
-            {props.list.map((value)=>{
+        
+        {props.list.map((value)=>{
                return  <li onClick = {(event)=>{
                     props.byValue(event.target.id);
                   

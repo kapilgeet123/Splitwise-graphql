@@ -21,7 +21,9 @@ const ProfileComponent = require('./apis/profileComponent');
 const SkillSetComponent = require('./apis/skillSetComponent');
 const SearchComponent = require('./apis/searchComponent');
 const AddGroup = require('./apis/AddGroup');
-
+const AddExp = require('./apis/AddExp');
+const Invitation = require('./apis/Invitation');
+const Adduser = require('./apis/adduser');
 const app = express();
 // setting view engine
 app.set('view engine', 'ejs');
@@ -151,7 +153,14 @@ app.post('/getCompanyDetails', (req, res) => {
 app.post('/getCompanyDetailsForStudent', (req, res) => {
   ProfileComponent.getCompanyDetailsForStudent(req, res, pool);
 });
+app.post('/fetchcomputedresult', (req, res) => {
+  AddExp.FetchExp(req, res, pool);
+});
 
+
+app.post('/fetchcomputedresulttotal', (req, res) => {
+  AddExp.FetchExptotal(req, res, pool);
+});
 const studentProfilePictureStorage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, './ProfilePictures/Student');
@@ -218,8 +227,39 @@ app.post('/searchStudents', (req, res) => {
 app.get('/getAllStudents', (req, res) => {
   SearchComponent.getAllStudents(req, res, pool);
 });
-
+app.post('/AddExp', (req, res) => {
+  AddExp.AddExp(req,res,pool);
+});
 module.exports = app;
+
+app.post('/gettransactionsdata', (req, res) => {
+  AddExp.Getbilldata(req,res,pool);
+});
+
+app.post('/gettransactionsdatatotal', (req, res) => {
+  AddExp.FetchExptotal(req,res,pool);
+});
+
+app.post('/fetchinvitation', (req, res) => {
+  Invitation.invitation(req,res,pool);
+});
+app.post('/updateusergroup', (req, res) => {
+  Invitation.updateusergroup(req,res,pool);
+});
+app.post('/updateexp', (req, res) => {
+  AddExp.ExpU(req,res,pool);
+});
+
+app.post('/getuserdata', (req, res) => {
+  Adduser.getuser(req,res,pool);
+});
+module.exports = app;
+app.post('/gettransactionsdatatot', (req, res) => {
+  AddExp.Totaltransaction(req,res,pool);
+});
+app.post('/leavgroup', (req, res) => {
+  AddGroup.LeaveGroup(req,res,pool);
+});
 
 const server = app.listen(3001, () => {
   console.log('Server listening on port 3001');

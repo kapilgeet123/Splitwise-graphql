@@ -29,10 +29,18 @@ const AddGroup = (req, res,pool) => {
 const AddUserGroup = (req, res,pool) => {
   console.log('Inside addusergroup module:');
   console.log(req.body);
-  const { groupname } = req.body;
-  const {email1} = req.body;
-  const {email2} = req.body;
-  const {email3} = req.body;
+  let j = req.body;
+  // const groupname = req.body.groupname;
+  // const email = req.body.email;
+  let values=j.reduce((o,a)=>{
+    let ini=[];
+    ini.push(a.groupname);
+    ini.push(a.email);
+    ini.push(a.invite);
+    o.push(ini);
+    return o
+},[])
+console.log(values);
   
 
   let tableName = 'USERGROUP';
@@ -42,17 +50,68 @@ const AddUserGroup = (req, res,pool) => {
         let insertSql = '';
      
           
-        insertSql = `INSERT INTO ${tableName} (emailId1,groupname,emailId2,emailId3)  VALUES ('${email1}','${groupname}','${email2}' , '${email3}')`;
+        insertSql = `INSERT INTO ${tableName}  (groupname,emailId,invite) VALUES ?`;
+      console.log(insertSql);
+        pool.query(insertSql,[values], (insertError, result) => {
+          if (insertError) {
+            console.log(insertError);
+            res.send('Error');
+          }
+          console.log(`Group:  created in Table: ${tableName} `);
+        res.send(`Group:  created in Table: ${tableName} `);
+     console.log("jhala");
+       });
+}
+
+const LeaveGroup = (req, res,pool) => {
+  const { groupname } = req.body;
+  const {email } = req.body;
+  console.log('Inside Leavegroup module:');
+  console.log(req.body);
+ 
+  
+
+  let tableName = 'USERGROUP';
+
+  
+  
+        let insertSql = '';
+     
+        insertSql = `SELECT sum(mean) as sum  from BILL where email ='${email}'`; 
+        console.log(insertSql);
+        pool.query(insertSql,(insertError, result) => {
+          if (insertError) {
+            console.log(insertError);
+            res.send('Error');
+          }
+       
+     
+       console.log(result[0].sum);
+        if (result[0].sum == 0)
+        {
+          console.log("result is 0")
+        insertSql = `DELETE FROM USERGROUP WHERE emailId='${email}' and groupname='${groupname}'`;
       console.log(insertSql);
         pool.query(insertSql, (insertError, result) => {
           if (insertError) {
             console.log(insertError);
             res.send('Error');
           }
-          console.log(`Group: ${groupname} created in Table: ${tableName} `);
-         // res.send(`Group: ${groupname} created in Table: ${tableName} `);
-        });
+        console.log("susccessfully deleted the entry")
+        res.send("Successfully deleted the entry")
+       });
+        }
+      else
+      {
+          res.send("Clear you dues")
+      }
+      
+    
+        }); 
+      
+     
 }
+
 
 
 
@@ -61,7 +120,7 @@ const AddUserGroup = (req, res,pool) => {
 
 exports.AddGroup = AddGroup;
 exports.AddUserGroup = AddUserGroup;
-
+exports.LeaveGroup = LeaveGroup;
 
 
 

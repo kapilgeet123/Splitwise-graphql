@@ -1,66 +1,109 @@
 import React from "react";
 import { connect } from "react-redux";
 import "../../styles/Dashboard.css";
-var exp = 0;
-var owe = [];
-var owed = [];
-function calculate(props){
-   exp = 0;
-   owe = [];
-   owed = [];
-   if(props.user.expensis){
-     console.log("****************************m kitni barri hu *********************************");
-   props.user.expensis.forEach(element => {
-if(element.data){
-  exp += parseInt(element.data.ammount);
-  //someone has to give you 
-      if(element.data.ammount>0){
-        
-        console.log("element.data.ammount>0")
-        owed.push(element);
-        console.log(owed);
-      }//u need to give
-      else if(element.data.ammount<0){
-        console.log("element.data.ammount<0");
-        // element.data.ammount = -(element.data.ammount);
-        owe.push(element);
-        // owe[owe.length].data.ammount = -( owe[owe.length].data.ammount );
-        console.log(owe);
-      }
-    }
-   });
-  }
-  // return exp;
-}
+import {NavLink} from 'react-router-dom';
+import { serverIp, serverPort } from '../config';
+import axios from 'axios';
+import {
+  Card, Modal, Image,
+} from 'react-bootstrap';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {  
+  useParams
+} from "react-router-dom";
 
- const Middle = props => {
-  return (
-    <div className="Middle">
-      {calculate(props)}
-      
-      <div className="MidDash">
-        <div className="DashHeader">
-          <h3>Dashboard</h3>
-         
+
+ class Grouptransaction extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            exp : 0,
+            registeredStudents: [],
+        };
+        this.returnRegisteredStudents = this.returnRegisteredStudents.bind(this);
+       
+      }
+    
+
+      componentDidMount() {
+        //let {groupname} = useParams();
+        const { groupname } = this.props.match.params;
+        console.log(groupname)
+        var res = groupname.slice(1);
+        console.log(res);
+        console.log(this.props.match.params.groupname);
+        axios.post(`${serverIp}:${serverPort}/gettransactionsdata`,  { groupname : res  })
+       // axios.post(`${serverIp}:${serverPort}/gettransactionsdata`)
+          .then((response) => {
+            console.log('Response data in componentDidMount');
+            console.log(response.data);
+            
+            this.setState({
+              registeredStudents: response.data,
+            });
+          }).catch((err) => {
+            console.log(`Error in componentDidMount of fetchdata: ${err}`);
+            window.alert('Error in connecting to server');
+          });
+       
+        }
+    
+
+
+
+returnRegisteredStudents() {
+  console.log(this.state.registeredStudents);
+  return this.state.registeredStudents.map((eachStudent) => {
+    
+    return (
+      <div>
+        <div>
+          <div>
+            <Card border="primary">
+              <Card.Body>
+                <Card.Title>
+                  
+                  {' '}
+                  {' '}
+                
+                </Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                
+                </Card.Subtitle>
+                <Card.Text>
+                  <b>Career Objective</b>
+                  {' '}
+                  <br />
+                  {eachStudent.billid}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <br />
+          </div>
           
-          <button className="btn float-right expense" onClick={props.friend}>
-            Add an expense
-          </button>
-          <button className="btn float-right settle" onClick={props.settle}>
-            Leave
-          </button>
-          <button className="btn float-right settle" onClick={props.settle}>
-            Group profile
-          </button>
+             
+              
           
         </div>
+        </div>
+    );
+  });
+}
 
-       
+render(){
+   return (
+    <div>
+      {this.returnRegisteredStudents()}
+    </div>
+    
 
-     
-           
-            
-         
+
   );
-};
+   }
+   
+}
+    
+ export default Grouptransaction;
+ 
 
+ 

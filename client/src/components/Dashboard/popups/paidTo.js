@@ -6,7 +6,7 @@ export  const PaidTo = (props)=>{
         <span>Paid To</span>
         </div>
         <ul className = "myList">
-        {props.list.map((value)=>{
+        {this.props.list.map((value)=>{
                return  <li onClick = {(event)=>{
                     props.toValue(event.target.id);
                   
