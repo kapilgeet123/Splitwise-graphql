@@ -1,4 +1,4 @@
-const login = (req, res,bcrypt, pool) => {
+const login = (req, res, pool) => {
   console.log('Inside login module:');
   console.log(req.body);
   const { emailId } = req.body;

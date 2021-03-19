@@ -1,4 +1,4 @@
-const signup = (req, res, bcrypt, saltRounds, pool) => {
+const signup = (req, res,saltRounds, pool) => {
   console.log('Inside signup module:');
   console.log(req.body);
   const { username } = req.body;

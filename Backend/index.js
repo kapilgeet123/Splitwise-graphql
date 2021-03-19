@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const cors = require('cors');
 const multer = require('multer');
 
@@ -47,11 +47,11 @@ app.use(express.static('./Resume/JobApplication'));
 app.use(express.static('./WebsiteImages'));
 
 app.post('/signup', (req, res) => {
-  Signup.signup(req, res, bcrypt, saltRounds, pool);
+  Signup.signup(req, res,saltRounds, pool);
 });
 
 app.post('/login', (req, res) => {
-  Login.login(req, res,bcrypt,pool);
+  Login.login(req, res,pool);
 });
 
 app.post('/createJobPost', (req, res) => {
@@ -268,3 +268,9 @@ app.post('/updateeditvalues', (req, res) => {
 const server = app.listen(3001, () => {
   console.log('Server listening on port 3001');
 });
+
+
+
+
+
+
