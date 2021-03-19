@@ -41,6 +41,7 @@ import {
             this.setState({
               registeredStudents: response.data,
             });
+            console.log(this.state.registeredStudents);
           }).catch((err) => {
             console.log(`Error in componentDidMount of fetchdata: ${err}`);
             window.alert('Error in connecting to server');
@@ -53,6 +54,9 @@ import {
 
 returnRegisteredStudents() {
   console.log(this.state.registeredStudents);
+  if(this.state.registeredStudents!= [])
+  {
+  
   return this.state.registeredStudents.map((eachStudent) => {
     
     return (
@@ -88,6 +92,7 @@ returnRegisteredStudents() {
         </div>
     );
   });
+}
 }
 
 render(){

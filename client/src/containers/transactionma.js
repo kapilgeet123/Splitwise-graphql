@@ -10,7 +10,7 @@ import  Grouptransaction  from '../components/Dashboard/Grouptransaction';
 //import  Friend  from '../components/Dashboard/popups/Friend';//invittaion no wale 
 //import "../styles/Dashboard.css"
 import Result from '../components/Dashboard/Result';
-import Invitation from '../components/Dashboard/Invitation';
+
 //import SettleUp  from '../components/Dashboard/popups/settleUp';
 import '../styles/dashHeader.css'
 export class transactionma extends React.Component{
@@ -96,7 +96,7 @@ render(){
         <div class="transaction">
             
             <Result/>
-            <Invitation/>
+            
         </div>
         </div>
     </div>

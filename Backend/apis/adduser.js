@@ -53,7 +53,8 @@ const adduser = (req, res, bcrypt, saltRounds, pool) => {
  
        
             
-          searchSql = `Select username,emailId from ${tableName} `;
+          // searchSql = `Select username,emailId from ${tableName} `;
+          searchSql = `Select * from ${tableName} `;
         console.log(searchSql);
           pool.query(searchSql, (insertError, result) => {
             if (insertError) {
@@ -62,7 +63,7 @@ const adduser = (req, res, bcrypt, saltRounds, pool) => {
             }
             console.log("fetched data from users table ");
           res.send(result);
-       
+            console.log(result);
          });
   }
  

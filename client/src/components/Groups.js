@@ -6,6 +6,7 @@ import { serverIp, serverPort } from '../components/config';
 import SettleUp from '../components/Dashboard/popups/settleUp';
 //import ViewProfile from './ViewProfile'
 import { Hint } from 'react-autocomplete-hint';
+import DashHeader from '../components/DashHeader';
 //import {View, StyleSheet, ImageBackground, Alert} from 'react-native';
 //import {Container, Header, Content, Left, Body, Right, Button, Icon, Title, Text, Item, Form, Label, Input, Toast} from 'native-base';
 //import SelectMultiple from 'react-native-select-multiple';
@@ -214,7 +215,9 @@ sessionStorage.setItem('groupname',this.state.groupname);
   // //console.log({eachStudent.username})
   // });
 		 return(
+
          <div className = "container signup">
+           <DashHeader/>
      <div className = "signup-form">
        
 	   <div class="imageholder">

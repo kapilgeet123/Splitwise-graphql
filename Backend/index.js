@@ -261,6 +261,10 @@ app.post('/leavgroup', (req, res) => {
   AddGroup.LeaveGroup(req,res,pool);
 });
 
+app.post('/updateeditvalues', (req, res) => {
+  AddExp.updateeditvalues(req,res,pool);
+});
+
 const server = app.listen(3001, () => {
   console.log('Server listening on port 3001');
 });

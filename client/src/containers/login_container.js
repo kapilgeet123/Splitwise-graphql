@@ -54,7 +54,7 @@ import setAuthorizationToken from "../utils/AxiosConfig";
                 localStorage.setItem('timezone', response.data.timezone);
                 localStorage.setItem('contact_phone', response.data.phonenumber);
                 localStorage.setItem('currency', response.data.currency);
-                localStorage.setItem('language', this.state.language);
+                localStorage.setItem('language', response.data.language);
                 localStorage.setItem('profilepicture', response.data.profilepicture);
                 window.location.href = '/Dashboard';
              }

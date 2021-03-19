@@ -112,7 +112,7 @@ const FetchExp = (req, res,pool) => {
          let insertSql = '';
       
         
-         calculationSql = `SELECT * from ${tableName} WHERE group_name = '${groupname}' order by ASC`;
+         calculationSql = `SELECT * from ${tableName} WHERE group_name = '${groupname}' ORDER BY createddate DESC`;
       console.log(calculationSql);
         pool.query(calculationSql, (insertError, result) => {
           if (insertError) {
@@ -218,8 +218,42 @@ const FetchExp = (req, res,pool) => {
       });
     }
        
+    
+ const  updateeditvalues=(req,res,pool) => {
+  console.log("Inside updateedit module:");
 
-
+  console.log(req.body);
+  if (req.file) {
+    console.log('Profile Picture Uploaded');
+    console.log(req.file);
+  }
+  const emailId = req.body.emailId;
+  const username = req.body.username.toLowerCase();
+  const email = req.body.email.toLowerCase();
+  const password = req.body.password.toLowerCase();
+  const contactphone = req.body.contactphone;
+  const {timezone} = req.body;
+  const currency = req.body.currency;;
+  const language = req.body.language
+  let profilePictureUrl = '';
+  let updateSQL = '';
+  // if (req.file) {   
+    profilePictureUrl = req.body.file;
+    updateSQL = `UPDATE USERS SET username='${username}',emailId='${email}',password='${password}',timezone='${timezone}',currency='${currency}',phonenumber='${contactphone}', language='${language}', profilepicture='${profilePictureUrl}' where emailId = '${emailId}'`;
+  // } 
+  pool.query(updateSQL, (updateError, result) => {
+    if (updateError) {
+      console.log(updateError);
+      console.log('Error in userUpdateProfile');
+      res.send('Error');
+    } else {
+      console.log('User Profile Updated');
+      res.send('Updated'); 
+    }
+    
+      
+    });
+  }
 
 
 
@@ -230,7 +264,7 @@ exports.FetchExp = FetchExp;
 exports.Getbilldata = Getbilldata;
 exports.FetchExptotal = FetchExptotal;
 exports.Totaltransaction = Totaltransaction;
-
+exports.updateeditvalues = updateeditvalues;
 
 
 

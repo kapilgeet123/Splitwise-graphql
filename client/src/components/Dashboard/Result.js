@@ -56,7 +56,8 @@ class Result extends React.Component {
 
           <div className="fitting">
              <label htmlFor="">{eachStudent.email}</label>
-             {/* <p style = {{color:"red"}}>$ {({eachStudent.sum}>=0)? '"gets back"' {eachStudent.sum} :"gives back" {eachStudent.sum} }</p> */}
+             <label htmlFor="">{eachStudent.sum}</label>
+             {/* <p style = {{color:"red"}}>$ {({eachStudent.sum}>=0)? {eachStudent.sum} :{eachStudent.sum} }</p> */}
            </div>
            
               

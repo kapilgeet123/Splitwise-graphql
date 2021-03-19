@@ -7,6 +7,7 @@ import  SignUp  from './components/signup';
 import {Dashboard} from './containers/Dashboard';
 import Addgroup from './components/Groups';
 import VProfile from  './components/ViewProfile';
+import UserProfile from  './components/Userprofile';
 import {transactionma} from './containers/transactionma';
 import Recentactivity from  './components/Recentactivity';
 export  class App extends React.Component{
@@ -21,9 +22,10 @@ export  class App extends React.Component{
           <Route exact path = "/Dashboard" component = {Dashboard}></Route>
           <Route exact path = "/Groups" component = {Addgroup}></Route>
           <Route exact path = "/ViewProfile" component = {VProfile}></Route>
-          <Route exact path = "/ViewProfile" component = {VProfile}></Route>
+          <Route exact path = "/UserProfile" component = {UserProfile}></Route>
           <Route exact path = "/Recentactivity" component = {Recentactivity}></Route>
           <Route exact path = "/transactionma:groupname" component = {transactionma}></Route>
+          
        </Switch>
       </div>
     )

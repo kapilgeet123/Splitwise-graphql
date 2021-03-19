@@ -4,36 +4,96 @@ import DashHeader from './DashHeader';
 import { withRouter } from "react-router-dom";
 import axios from 'axios';
 import { serverIp, serverPort } from '../components/config';
-
+import {
+  Col, Button, FormGroup, Label, Input, FormText,Form
+} from 'reactstrap';
 
 class VProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       userdata: [],
-     disabled: true,
-      
+     
+      email : localStorage.getItem('email_current'),
+     username : localStorage.getItem('username'),
+     contactphone : localStorage.getItem('contactphone'),
+     password : localStorage.getItem("password"),
+    currency : localStorage.getItem("currency"),
+    timezone :localStorage.getItem("timezone"),
+   language : localStorage.getItem("language"),
+   profile_picture_url: localStorage.getItem('profile_picture_url'),
+   selectedFile: null,  
     };
- 
+    this.editProfileHandlerSubmit = this.editProfileHandlerSubmit.bind(this);
+    this.usernameChangeHandler = this.usernameChangeHandler.bind(this);
+    this.passwordChangeHandler = this.passwordChangeHandler.bind(this);
+    this.contactEmailChangeHandler = this.contactEmailChangeHandler.bind(this);   
+    this.languageChangeHandler = this.languageChangeHandler.bind(this);
+    this.currencyChangeHandler = this.currencyChangeHandler.bind(this);
+    this.timezoneChangeHandler = this.timezoneChangeHandler.bind(this);
+    this.contactPhoneChangeHandler = this.contactPhoneChangeHandler.bind(this);
+    this.profileFileUploadHandler = this.profileFileUploadHandler.bind(this);
   }
-  handleEditusername() {
-    this.setState( {disabled: !this.state.disabled} )
-
+  usernameChangeHandler(e) {
+    console.log("Inside username");
+    console.log(e.target.value);
+   
+    this.setState( {  
+      username: e.target.value
+    } );
+     console.log(this.state.username);
   } 
  
-  handleEditphone() {
-    this.setState( {disabled: !this.state.disabled} )
-
+  contactPhoneChangeHandler(e) {
+    this.setState( {   
+      contactphone:e.target.value
+    } );
+   
   } 
-  handleEditpassword() {
-    this.setState( {disabled: !this.state.disabled} )
-
+  passwordChangeHandler(e) {
+    this.setState({
+    
+      password: e.target.value
+    } );
+ 
   } 
-  handleEditemail() {
-    this.setState( {disabled: !this.state.disabled} )
-
+  contactEmailChangeHandler(e) {
+    this.setState( {
+     
+      email: e.target.value
+    } );
+   
+  } 
+  languageChangeHandler(e) {
+    this.setState( {
+      
+      language: e.target.value
+    } );
+   
+  } 
+  currencyChangeHandler(e) {
+    this.setState( {
+    
+     currency: e.target.value
+    } );
+   
+  } 
+  timezoneChangeHandler(e) {
+    this.setState( {
+     
+     timezone: e.target.value
+    } );
+   
   } 
   
+  profileFileUploadHandler(e) {
+    this.setState({
+      selectedFile: e.target.files[0],
+    }, () => {
+      console.log(this.state.selectedFile);
+    });
+  }
+
 
   defaultcurrency(currency)
   {
@@ -81,6 +141,78 @@ return Data;
   
 return Data;
     };
+
+
+  editProfileHandlerSubmit(e) {
+ 
+  e.preventDefault();
+  // const fd = new FormData();
+  // const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+
+ console.log(this.state.language);
+  const data=
+  {
+    emailId : localStorage.getItem('email_current'),
+    username :this.state.username,
+    password :this.state.password,
+    email :this.state.email,
+    language: this.state.language,
+    currency:this.state.currency,
+    timezone:this.state.timezone,
+    file : this.state.selectedFile.name,
+    contactphone :this.state.contactphone,
+  }
+  console.log(data);
+  // fd.append('username', this.state.username);
+  // fd.append('password', this.state.password);
+  // fd.append('contactEmail', this.state.contactEmail);
+  // fd.append('language', this.state.language);
+  // fd.append('currency', this.state.currency);
+  // fd.append('timezone', this.state.timezone);
+  // fd.append('file', this.state.selectedFile);
+  // console.log(fd.username);
+  // console.log(fd);
+  // console.log(this.state.username);
+  
+  axios.post(`${serverIp}:${serverPort}/updateeditvalues`,data)
+  // axios.post(`${serverIp}:${serverPort}/gettransactionsdata`)
+     .then((response) => {
+      console.log('UpdateUserProfile Response Data');
+      console.log(response.data);
+      if (response.data === 'Error') {
+        window.alert('Error in Connecting to Database while updating company details');
+      } else {
+        window.alert('Profile Updated Successfully');
+        axios.post(`${serverIp}:${serverPort}/getUserData`, { emailID: this.state.email  })
+          .then((resp) => {
+            console.log("Inside resposnse");
+            console.log(resp.data);
+            // if (resp === 'Error') {
+            //   window.alert('Error in Connecting to Database while getting Company Details');
+            // } else {
+              console.log(resp.data);
+              localStorage.setItem('username', resp.data.username);
+              localStorage.setItem('password', resp.data.password);
+              localStorage.setItem('contactEmail', resp.data.contactEmail);
+              localStorage.setItem('language', resp.data.language);
+              localStorage.setItem('currency', resp.data.timezone);
+              localStorage.setItem('profile_picture_url', resp.data.profilepicture_url);
+              localStorage.setItem('timezone', resp.data.timezone);
+              localStorage.setItem('description', resp.data.description);
+              // window.location.href = '/UserProfile';
+            // }
+          }).catch((error) => {
+            console.log(`In catch of axios post call to getCompanyDetails  api ${error}`);
+            window.alert('Error in Profile component of Company while Getting company Details axios Post call');
+          });
+      }
+    }).catch((err) => {
+      console.log(`In catch of axios post call to updateCompanyProfile  api ${err}`);
+      window.alert('Error in Profile component of Company axios Post call');
+    });
+
+     }
+     
   // componentDidMount() {
     
   //  return(
@@ -101,19 +233,10 @@ return Data;
   //     });
   // }
 
-  render()
-  {
-   const email = localStorage.getItem('email_current');
-   const   username = localStorage.getItem('username');
-    const contact_phone = localStorage.getItem('contact_phone');
-   const  password = localStorage.getItem("password");
-   const currency = localStorage.getItem("currency")
-  const   timezone =localStorage.getItem("timezone");
-   const  language = localStorage.getItem("language");
-    
-  const array =  this.defaultcurrency(currency);
-  const array1 =  this.defaultlanguage(language);
-  const array2 = this.defaulttimezone(timezone);
+  render(){  
+  const array =  this.defaultcurrency(this.currency);
+  const array1 =  this.defaultlanguage(this.language);
+  const array2 = this.defaulttimezone(this.timezone);
  console.log(array);
 
  console.log(this.props.event);
@@ -124,192 +247,97 @@ return Data;
 //  }); 
  console.log(values);
    return(
-    
+    <div>
      <div>
+       <DashHeader/>
        <h1>Your Account</h1>
-       <div class="imageholder">
-<img className = "profile" src={require('../images/logo.png')} alt="" srcset=""class="image"/>
-
-    <div class="avatar">
-          Change your avatar       
-        <input id="user_avatar" name="user[avatar]"  size="10" type="file"/>
-        </div>
-    </div>
-    
-<div class="clearfix">
-  <label for="user_name">Your name</label>
-  <div class="input static name">
-  <input
-               value= {(this.state.disabled)? username : ""}
-                  type="text"
-                  
-                  id = "username1"
-                  disabled = {(this.state.disabled)? "disabled" : ""}
-                  class="name"
-                required/>
-    <button onClick ={this.handleEditusername.bind(this)}>Edit</button>
-    {/* <strong id="username">{username} </strong>   */}
-    
-    
-  </div>
-  <div class="input dynamic name">
-    <input autocomplete="off" type="text" value="GEETIKA KAPIL" name="user[name]" id="user_name"/>
-  </div>
-</div>
-<div class="clearfix">
-  <label for="user_email">Your email address</label>
-  <div class="input static email">
-  <input
-               value= {(this.state.disabled)? email  : ""}
-                  type="email"
-                  
-                  id = "email1"
-                  disabled = {(this.state.disabled)? "disabled" : ""}
-                  class="email"
-                required/>
-   
-    
-   <button onClick ={this.handleEditemail.bind(this)}>Edit</button>
-    
-  </div>
-</div>
-<div class="identities"></div>
-     
-  <div class="clearfix">
-    <label for="user_phone">Your phone number</label>
-    <div class="input static phone">
-    <input
-               value= {(this.state.disabled)? contact_phone  : ""}
-                  type="phone"
-                  
-                  id = "phone"
-                  disabled = {(this.state.disabled)? "disabled" : ""}
-                  class="contactphone"
-                required/>
-    
-    <button onClick ={this.handleEditphone.bind(this)}>Edit</button>
+       <Form onSubmit={this.editProfileHandlerSubmit}>
+       <FormGroup row>
+              <Label for="profilePicture" sm={2}>Profile Picture</Label>
+              <Col sm={10}>
+                <Input type="file" name="profilePicture" id="profilePicture" accept="image/*" onChange={this.profileFileUploadHandler} required />
+                <FormText color="muted">
+                  Upload new Profile Picture. Leave it to keep the previous one.
+                </FormText>
+              </Col>
+            </FormGroup>
        
-      
-    </div>
-    <div class="input dynamic phone">
-
-      <div>
-      <input autocomplete="off" type="tel" name="user[phone]" id="user_phone"/>
-      
-    </div>
-  </div>
-
-  <div class="clearfix password-change-link">
-    <label for="user_password">Your password</label>
-    <div class="input">
-    <input
-               value= {(this.state.disabled)? password  : ""}
-                  type="password"
-                  
-                  id = "password"
-                  disabled = {(this.state.disabled)? "disabled" : ""}
-                  class="password"
-                required/>
-     
-  
-    <button onClick ={this.handleEditpassword.bind(this)}>Edit</button>
-    </div>
-  </div>
-</div>
-
-<div class="span3 columns">
-
-  <div class="clearfix">
-    <label for="user_default_currency">Your default currency</label>
-    
-    <div class="input">
-  <select class="modernized" name="user[default_currency]" id="user_default_currency">
-    <option> {currency} </option>
-  {array.map((text) => (
-                <option value={text}>
-                    {text}
-                </option>
-            ))}
-</select>
-  </div>
-  </div>
-
-</div>
-
-
-
-
-
-<div>
-
-   <div class="clearfix">
-    <label for="user_locale">Language</label>
-     <div class="input">
-      <select class="modernized" name="user[locale]" id="user_locale">
-        <option selected="selected" value="en">{language}  </option>
-        {array1.map((text) => (
+            <FormGroup row>
+              <Label for="username" sm={2}>Your Name</Label>
+              <Col sm={6}>
+                <Input type="text" name="username" id="username" value={this.state.username} onChange={this.usernameChangeHandler} required />
+              </Col>
+            </FormGroup>
+            <br/>
+            <FormGroup row>
+              <Label for="contactEmail" sm={2}>Contact Email</Label>
+              <Col sm={3}>
+                <Input type="email" name="email" id="email" value={this.state.email} onChange={this.contactEmailChangeHandler} required />
+              </Col>
+              <Label for="contactPhone" sm={2}>Contact Phone</Label>
+              <Col sm={3}>
+                <Input type="number" name="contactphone" id="contactphone" value={this.state.contactphone} onChange={this.contactPhoneChangeHandler} required />
+              </Col>
+            </FormGroup>
+            <br/>
+            <FormGroup row>
+              <Label for="city" sm={1}>Password</Label>
+              <Col sm={2}>
+                <Input type="text" name="password" id="password" value={this.state.password} onChange={this.passwordChangeHandler} required />
+              </Col>
+              <Label for="currency" sm={1}>Currency</Label>
+              <Col sm={2}>
+                <Input type="select" name="currency" id="currency" value={this.state.currnecy} onChange={this.currencyChangeHandler} required >
+                {array.map((text) => (
                 <option value={text}>
                     {text}
                 </option>
             ))}
 
-      
-       </select>
 
-
-    </div>
-   </div>
-   </div>
-  
-     <div class="clearfix">
-     <label for="user_time_zone">Your time zone</label>
-     <div class="input">
-       <select class="modernized" name="user[time_zone]" id="user_time_zone">
-  <option selected="selected" >{timezone}</option>
-  {array2.map((text) => (
+                </Input>
+              </Col>
+              <Label for="langauge" sm={1}>Language</Label>
+              <Col sm={2}>
+                <Input type="select" name="language" id="language" value={this.state.language} onChange={this.languageChangeHandler} required >
+                {array1.map((text) => (
                 <option value={text}>
                     {text}
                 </option>
             ))}
- 
-</select>
-</div>
-</div>
 
-
-
-
-
-    
-
-    <div class="row">
-      <div class="offset9 span3 columns" >&nbsp;
-        <input type="submit" name="commit" value="Save"  class="btn btn-large btn-orange"  data-disable-with="Save"/>
-       </div>
-     </div>
-
-    
-
-    
-
-    
-
-  
-
+                  </Input>
+              </Col>
+            </FormGroup>
+           <br/>
           
+           <FormGroup row>
+              <Label for="exampleText" sm={2}>TimeZone</Label>
+              <Col sm={5}>
+                <Input selected="selected" type="select" name="timezone" id="timezone"  onChange={this.timezoneChangeHandler} value={this.state.timezone} required >
+                {array2.map((text) => (
+                <option value={text}>
+                    {text}
+                </option>
+            ))}
+                </Input>
+              </Col>
+            </FormGroup>
+            <FormGroup check row>
+              <Col sm={{ size: 4, offset: 5 }}>
+                <Button style={{ width: 150, height: 50 }}>Update</Button>
+              </Col>
+            </FormGroup>
+           
+           </Form> 
+            </div>
 
-    
-          
-    
-
-       
-    
+    </div>
+   );
+  }
+}
+  export default VProfile;    
       
-    
-    ]
-     
-</div>
-    
   
 
     
@@ -320,9 +348,6 @@ return Data;
 
 
 
-   );
-  }
 
-}
 
- export default VProfile;
+

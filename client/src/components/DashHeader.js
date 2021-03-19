@@ -14,7 +14,7 @@ import '../styles/dashHeader.css'
      
      }
      }>Log Out</button></NavLink>
-     <NavLink to = "/ViewProfile" ><button className = "logoutbtn">View profile</button></NavLink>
+     <NavLink to = "/UserProfile" ><button className = "logoutbtn">View profile</button></NavLink>
       
       {console.log("inside DashHeader")}
 

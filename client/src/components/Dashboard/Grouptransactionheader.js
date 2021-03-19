@@ -33,6 +33,7 @@ import AddExpense from '../../components/Dashboard/popups/addExpense';
    Leavegroup(e)
    {
   e.preventDefault();
+  console.log("in leave group function");
   const data= {
     groupname : this.props.match.params.groupname.slice(1),
      email :localStorage.getItem('email_current')
@@ -43,10 +44,7 @@ import AddExpense from '../../components/Dashboard/popups/addExpense';
        console.log('Response data in componentDidMount');
        console.log(response.data);
        
-       this.setState({
-         registeredStudents: response.data,
-       });
-      // console.log(this.state.registeredStudents);
+   
      }).catch((err) => {
        console.log(`Error in componentDidMount of fetchdata: ${err}`);
        window.alert('Error in connecting to server');

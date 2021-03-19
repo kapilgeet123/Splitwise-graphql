@@ -103,7 +103,8 @@ const LeaveGroup = (req, res,pool) => {
         }
       else
       {
-          res.send("Clear you dues")
+          console.log("Inside else");
+        res.send("Clear you dues")
       }
       
     

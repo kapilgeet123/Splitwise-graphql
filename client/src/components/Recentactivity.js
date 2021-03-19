@@ -3,16 +3,18 @@ import { connect } from "react-redux";
 import "../styles/Dashboard.css";
 import {NavLink} from 'react-router-dom';
 import { serverIp, serverPort } from '../components/config';
+import DashHeader from '../components/DashHeader';
 import axios from 'axios';
 import {
   Card, Modal, Image,
 } from 'react-bootstrap';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import Dropdown from 'react-dropdown';
 import {  
   useParams
 } from "react-router-dom";
-
+//import  StudentListEvents from '../components/Dashboard/filter';
 
  class Recentactivity extends React.Component {
     constructor(props) {
@@ -21,10 +23,36 @@ import {
             selectedOption: '',
             registeredStudents: [],
             userOption: ['Asc', 'Desc'],
+            poetFilter: "",
+            poets: [],
+            filteredPoets: []
         };
         this.onChangeSelectedOptionHandler = this.onChangeSelectedOptionHandler.bind(this);
         this.returnRegisteredStudents = this.returnRegisteredStudents.bind(this);
-       
+        this.handleChange = this.handleChange(this);
+        this.filterPoets = this.filterPoets(this);
+      }
+      handleChange(e) {
+        this.setState({
+          poetFilter: e.value,
+        })
+       this.filterPoets(e.value);
+      }
+
+      filterPoets(poetFilter)  {
+       console.log("Inside filterpoets");
+        let filteredPoets = this.state.registeredStudents
+        console.log(this.state.filteredPoets)
+        filteredPoets = filteredPoets.filter((poet) => {
+          let poetName = poet.username.toLowerCase()
+          console.log(poetName);
+          return poetName.indexOf(
+            poetFilter.toLowerCase()) !== -1
+        })
+        this.setState({
+          filteredPoets
+        })
+        console.log(this.state.filteredPoets)
       }
     
 
@@ -38,6 +66,8 @@ import {
             
             this.setState({
               registeredStudents: response.data,
+            
+            filteredPoets: response.data
             });
           }).catch((err) => {
             console.log(`Error in componentDidMount of fetchdata: ${err}`);
@@ -62,15 +92,16 @@ returnRegisteredStudents() {
   console.log(this.state.registeredStudents);
   if(this.state.SelectedOption == 'Asc')
   {
+
       console.log("Inside Asc");
   return this.state.registeredStudents.map((eachStudent) => {
     
     return (
-       
-      <div >
       
+      <div >
+      <DashHeader/>
         <div>
-        
+        {/* <StudentListEvents/> */}
           <div>
             <Card border="primary">
               <Card.Body>
@@ -109,9 +140,13 @@ else{
         return (
            
           <div>
-          
+         <DashHeader/>
             <div>
-            
+            {/* <StudentListEvents/> */}
+            <label htmlFor="filter">Filter by Poet: </label>
+        <input type="text" id="filter" 
+          value={this.state.poetFilter} 
+          onChange={this.handleChange}/>
               <div>
                 <Card border="primary">
                   <Card.Body>
