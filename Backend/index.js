@@ -11,7 +11,8 @@ const multer = require('multer');
 const saltRounds = 10;
 
 // my api package imports
-const pool = require('./Database');
+// const pool = require('./Database');
+const pool = require('./DS_Store');
 const Config = require('./config');
 const Signup = require('./apis/signup');
 const Login = require('./apis/login');
