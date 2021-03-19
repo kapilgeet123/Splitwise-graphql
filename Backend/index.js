@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-//const bcrypt = require('bcrypt');
+
 const cors = require('cors');
 const multer = require('multer');
 
@@ -23,7 +23,7 @@ const SearchComponent = require('./apis/searchComponent');
 const AddGroup = require('./apis/AddGroup');
 const AddExp = require('./apis/AddExp');
 const Invitation = require('./apis/Invitation');
-const Adduser = require('./apis/adduser');
+const Adduser = require('./apis/Adduser');
 const app = express();
 // setting view engine
 app.set('view engine', 'ejs');

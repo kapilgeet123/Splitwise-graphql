@@ -30,18 +30,7 @@ const login = (req, res, pool) => {
       console.log(`User found in table ${tableName}`);
       console.log(foundUser);
       res.send (foundUser);
-      // bcrypt.compare(password, foundUser.password, (pwdCompareError, pwdCompareResult) => {
-      //   if (pwdCompareError) {
-      //     console.log(`Password Compare Error: ${pwdCompareError}`);
-      //     res.send('Error in comparing Password');
-      //   }
-      //   if (!pwdCompareResult) {
-      //     res.send('Wrong Password');
-      //   } else {
-      //     console.log('Correct password given');
-      //     res.send(foundUser);
-      //   }
-      // });
+      
     }
   });
  };
