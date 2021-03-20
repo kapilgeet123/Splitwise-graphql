@@ -8,7 +8,7 @@ import {
   Card, Modal, Image,
 } from 'react-bootstrap';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import AddExpense from '../../components/Dashboard/popups/addExpense';
+import AddExpense from './popups/AddExpense';
 
  class Grouptransactionheader extends React.Component {
     constructor(props) {

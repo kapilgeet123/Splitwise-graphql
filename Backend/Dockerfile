@@ -10,7 +10,7 @@ COPY package.json /handshake-backend/
 
 RUN apk add --no-cache make gcc g++ python && \
   npm install && \
-  npm rebuild bcrypt --build-from-source && \
+  
   apk del make gcc g++ python
 
 # Copy the current directory contents into the container at /client

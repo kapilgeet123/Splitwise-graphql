@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<SettleUp
+  eve={
+    Array [
+      "mia",
+      "jia",
+      "tia",
+    ]
+  }
+>
+  <div
+    className="friendPopup"
+  >
+    <div
+      className="flx"
+    >
+      <div
+        className="frnd-content"
+      >
+        <div
+          className="frnd-header"
+        >
+          <span>
+            Settle up
+          </span>
+          <button
+            className="float-right"
+          >
+            <i
+              class="fas fa-times"
+            />
+          </button>
+        </div>
+        <div
+          className="frnd-set"
+        >
+          <button
+            onClick={[Function]}
+          >
+            you
+          </button>
+           paid 
+          <button
+            onClick={[Function]}
+          >
+            select
+          </button>
+        </div>
+        <input
+          className="money"
+          id=""
+          name=""
+          onChange={[Function]}
+          placeholder="$ 0.0"
+          type="number"
+        />
+        <div
+          className="pop-btn bt-mr"
+        >
+          <button
+            className="btn Add"
+            onClick={[Function]}
+          >
+            Save
+          </button>
+          <button
+            className="btn cut"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+      <div
+        className="secondBox"
+      >
+        <div
+          className="frnd-header"
+        >
+          <span>
+            Paid To
+          </span>
+        </div>
+        <ul
+          className="myList"
+        >
+          <li
+            id="mia"
+            onClick={[Function]}
+          >
+            mia
+          </li>
+          <li
+            id="jia"
+            onClick={[Function]}
+          >
+            jia
+          </li>
+          <li
+            id="tia"
+            onClick={[Function]}
+          >
+            tia
+          </li>
+        </ul>
+      </div>
+      <div
+        className="secondBox"
+      >
+        <div
+          className="frnd-header"
+        >
+          <span>
+            Paid To
+          </span>
+        </div>
+        <ul
+          className="myList"
+        >
+          <li
+            id="mia"
+            onClick={[Function]}
+          >
+            mia
+          </li>
+          <li
+            id="jia"
+            onClick={[Function]}
+          >
+            jia
+          </li>
+          <li
+            id="tia"
+            onClick={[Function]}
+          >
+            tia
+          </li>
+        </ul>
+      </div>
+      <div
+        className="secondBox"
+      >
+        <div
+          className="frnd-header"
+        >
+          <span>
+            Paid To
+          </span>
+        </div>
+        <ul
+          className="myList"
+        >
+          <li
+            id="mia"
+            onClick={[Function]}
+          >
+            mia
+          </li>
+          <li
+            id="jia"
+            onClick={[Function]}
+          >
+            jia
+          </li>
+          <li
+            id="tia"
+            onClick={[Function]}
+          >
+            tia
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</SettleUp>
+`;

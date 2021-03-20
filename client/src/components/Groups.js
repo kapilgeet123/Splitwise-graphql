@@ -53,7 +53,7 @@ componentDidMount(){
   if (response.data === 'Error') {
       window.alert('Error while querying the Database');
     } else {
-      window.alert('Successfully Added the Usergroup'); 
+     
       
       var hintArrayname = []
       var hintArrayemail = []
@@ -315,7 +315,7 @@ sessionStorage.setItem('groupname',this.state.groupname);
 }
 }
      
-export default withRouter(AddGroup);
+export default AddGroup;
 
 
 

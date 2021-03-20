@@ -30,7 +30,7 @@ const login = (req, res, pool) => {
       console.log(`User found in table ${tableName}`);
       console.log(foundUser);
       res.send (foundUser);
-      
+
     }
   });
  };

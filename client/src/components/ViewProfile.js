@@ -183,7 +183,7 @@ return Data;
         window.alert('Error in Connecting to Database while updating company details');
       } else {
         window.alert('Profile Updated Successfully');
-        axios.post(`${serverIp}:${serverPort}/getUserData`, { emailID: this.state.email  })
+        axios.post(`${serverIp}:${serverPort}/getUserData`, { emailId: this.state.email  })
           .then((resp) => {
             console.log("Inside resposnse");
             console.log(resp.data);

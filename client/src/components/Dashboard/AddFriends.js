@@ -1,6 +1,6 @@
 import React from 'react';
 import "../../styles/Dashboard.css";
-import FriendList from './FriendList';
+
 import Grouplist from './Grouplist';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
@@ -84,7 +84,7 @@ render()
     return(
         <div className = "AddFriend">
          
-
+    
 
          <div className = "content">
           
@@ -95,9 +95,7 @@ render()
             {/* <button onClick = {props.friend} className = "AddFrnd float-right">+Add</button> */}
           
          </div>
-         <div className = "Friend_List">
-               <FriendList/>
-         </div>
+        
 
          <div className = "friendHeader" >
             <label htmlFor="">GROUPS</label>

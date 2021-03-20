@@ -115,10 +115,30 @@ returnRegisteredStudents() {
                 
                 </Card.Subtitle>
                 <Card.Text>
-                  <b>Career Objective</b>
+                  <b>Transaction data</b>
                   {' '}
                   <br />
-                  {eachStudent.billid}
+                  
+                  <b>Transaction data</b>
+                      {' '}
+                      <br />
+                      <b>Bill iD</b>
+                      {eachStudent.billid}
+                      <br/>
+                      <b>Groupname</b>
+                      {eachStudent.group_name}
+                      <br/>
+                      <b>Transaction description </b>
+                  {eachStudent.description}
+                  <br/>
+                  <b>For </b>
+                  {eachStudent.email}
+                  <br/>
+                  <b>CreatedDate</b>
+                  {eachStudent.createddate}
+                  <br/>
+                  <b>Paid By </b>
+                  {eachStudent.paidby}
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -142,11 +162,7 @@ else{
           <div>
          <DashHeader/>
             <div>
-            {/* <StudentListEvents/> */}
-            <label htmlFor="filter">Filter by Poet: </label>
-        <input type="text" id="filter" 
-          value={this.state.poetFilter} 
-          onChange={this.handleChange}/>
+      
               <div>
                 <Card border="primary">
                   <Card.Body>
@@ -160,11 +176,26 @@ else{
                     
                     </Card.Subtitle>
                     <Card.Text>
-                      <b>Career Objective</b>
+                      <b>Transaction data</b>
                       {' '}
                       <br />
+                      <b>Bill iD</b>
                       {eachStudent.billid}
+                      <br/>
+                      <b>Groupname </b>
                       {eachStudent.group_name}
+                      <br/>
+                      <b>Transaction description </b>
+                  {eachStudent.description}
+                  <br/>
+                  <b>For </b>
+                  {eachStudent.email}
+                  <br/>
+                  <b>CreatedDate</b>
+                  {eachStudent.createddate}
+                  <br/>
+                  <b>Paid By </b>
+                  {eachStudent.paidby}
                     </Card.Text>
                   </Card.Body>
                 </Card>

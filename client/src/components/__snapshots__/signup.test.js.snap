@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<SignUp>
+  <div
+    className="container signup"
+  >
+    <div
+      className="signup-logo"
+    >
+      <img
+        alt=""
+        src="logo.png"
+      />
+    </div>
+    <div
+      className="signup-form"
+    >
+      <h3>
+        INTRODUCE YOURSELF
+      </h3>
+      <label
+        htmlFor=""
+      >
+        Hi there! My name is
+      </label>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-control"
+          id="username"
+          onChange={[Function]}
+          required={true}
+          type="text"
+        />
+        <label
+          htmlFor=""
+        >
+          Here’s my email address: 
+        </label>
+        <input
+          className="form-control"
+          id="email"
+          onChange={[Function]}
+          required={true}
+          type="text"
+        />
+        <label
+          htmlFor=""
+        >
+          And here’s my password:  
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          onChange={[Function]}
+          required={true}
+          type="text"
+        />
+        <button
+          className="btn"
+          type="submit"
+        >
+          Sign me Up!
+        </button>
+      </form>
+    </div>
+  </div>
+</SignUp>
+`;

@@ -10,11 +10,11 @@ class Middle extends React.Component {
     super(props);
     this.state = {
       registeredStudents: [],
-       exp : 0,
+      exp: 0,
       owe : [],
       owed : [],
     };
-    this.calculate = this.calculate.bind(this);
+   this.calculate = this.calculate.bind(this);
   // this.showGroup = this.showGroup.bind(this);
    
   }
@@ -22,12 +22,13 @@ class Middle extends React.Component {
 
 
   componentDidMount() {
+  //  localStorage.setItem("x",1)
     axios.post(`${serverIp}:${serverPort}/gettransactionsdatatotal`)
   
   .then((response) => {
     console.log('Response data in componentDidMount');
     console.log(response.data);
-    
+    console.log("middle dashboard componet");
     this.setState({
       registeredStudents: response.data,
     });
@@ -35,18 +36,56 @@ class Middle extends React.Component {
     console.log(`Error in componentDidMount of fetchdata: ${err}`);
     window.alert('Error in connecting to server');
   });
+  console.log("Inside calculate function")
+  
+  // let values = [];
+  // var temp = 0;
+  // this.state.registeredStudents.map((values) => {
+  //   if(values.sum){
+  //     console.log(values.sum)
+  //     temp += values.sum;
+  //     console.log(this.state.exp);
+  //     //   //someone has to give you 
+  //            if(values.sum>0){
+              
+  //              console.log("element.data.ammount>0")
+  //             this.state.owed.push(values);
+  //             console.log(this.owed);
+  //           }//u need to give
+  //            else if(values.sum<0){
+  //            console.log("element.data.ammount<0");
+  //             values.sum = -(values.sum);
+  //              this.state.owe.push(values);
+  //     //         // owe[owe.length].data.ammount = -( owe[owe.length].data.ammount );
+  //              console.log(this.owe);
+  //           }
+  //         }
+  //         else
+  //         {
+  //          console.log("some error");
+  //         }
+  //       });
+
+
+
+
+
+
+
+
     
   }
 
-calculate(){
+calculate(temp){
   console.log("Inside calculate function")
+  
 let values = [];
-let temp = 0;
+ temp = 0;
 this.state.registeredStudents.map((values) => {
   if(values.sum){
     console.log(values.sum)
     temp += values.sum;
-    console.log(temp);
+  
     //   //someone has to give you 
            if(values.sum>0){
             
@@ -68,8 +107,8 @@ this.state.registeredStudents.map((values) => {
         }
 
 });
-
-
+console.log(temp);
+return(temp);
 
   }
   // return exp;
@@ -85,10 +124,31 @@ this.state.registeredStudents.map((values) => {
 render()
 {
 
+  var temp;
+  console.log(this.state.exp);
+  let total = this.calculate(temp)
+  console.log(total);
+// console.log("I m printing dashboard")  
+// console.log(localStorage.getItem("x"));
+//     if(localStorage.getItem("x")==1)
+//     {
 
+//     return(
+//      <div>
+//        </div>
+
+
+//     );
+
+
+
+//     }
+
+// else{
+  
   return (
     <div className="Middlesd">
-     {this.calculate()}
+     {/* {this.calculate(temp)} */}
       
       <div className="MidDash">
         <div className="DashHeader">
@@ -96,34 +156,32 @@ render()
           <button className="btn float-right settle" onClick={this.props.settle} >
             Settle up
           </button>
-          <button className="btn float-right expense" onClick={this.props.friend}>
-            Add an expense
-          </button>
+          
         </div>
 
         <div className="total">
           <div className="fitting">
             <label htmlFor="">total balance</label>
-            <p className="green">$ {this.exp}</p>
+            <p className="green">${total}</p>
           </div>
           <div className="fitting">
             <label htmlFor="">you owe</label>
-            <p style = {{color:"red"}}>$ {(this.exp<0)?this.exp:0}</p>
+            <p style = {{color:"red"}}>$ {(total<0)?total:0}</p>
           </div>
           <div className="fitting">
             <label htmlFor="">you are owed</label>
-            <p className="green">$ {(this.exp>0)?this.exp:0}</p>
+            <p className="green">$ {(total>0)?total:0}</p>
           </div>
         </div>
       </div>
 
       <div className="totalCollection">
         <div>
-          <label htmlFor="">YOU OWE</label>
+          <label htmlFor="">YOU ARE OWED</label>
         </div>
         <div>
           <label htmlFor="" className="float-right mr-4">
-            YOU ARE OWED
+            YOU OWE
           </label>
         </div>
       </div>
@@ -139,7 +197,7 @@ render()
              /> */}
              <div className="inline">
                <h5>{value.email}</h5>
-               <span>you owe ${-(value.sum)}</span>
+               <span>owes you ${-(value.sum)}</span>
              </div>
            </li>
             )}
@@ -171,7 +229,7 @@ render()
             />
             <div className="inline">
               <h5>{value.email}</h5>
-              <span>owes you ${value.sum}</span>
+              <span>will get ${value.sum}</span>
             </div>
           </li>
             )}
@@ -195,7 +253,8 @@ render()
       </div>
     </div>
   );
-          }
+ //        }
+        }
 };
 
 

@@ -1,0 +1,645 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<UserProfile>
+  <div>
+    <br />
+    <div>
+      <Form
+        onSubmit={[Function]}
+        tag="form"
+      >
+        <form
+          className=""
+          onSubmit={[Function]}
+        >
+          <FormGroup
+            row={true}
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md={4}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+                xs={6}
+              >
+                <div
+                  className="col-6 col-md-4"
+                >
+                  <Image
+                    alt="Profile Picture"
+                    fluid={false}
+                    rounded={false}
+                    roundedCircle={true}
+                    src="http://localhost:3001/null"
+                    style={
+                      Object {
+                        "height": 200,
+                        "width": 200,
+                      }
+                    }
+                    thumbnail={false}
+                  >
+                    <img
+                      alt="Profile Picture"
+                      className="rounded-circle"
+                      src="http://localhost:3001/null"
+                      style={
+                        Object {
+                          "height": 200,
+                          "width": 200,
+                        }
+                      }
+                    />
+                  </Image>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            row={true}
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Label
+                for="companyName"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <label
+                  className="col-sm-2 col-form-label"
+                  htmlFor="companyName"
+                >
+                  Your Name
+                </label>
+              </Label>
+              <Col
+                sm={6}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-6"
+                >
+                  <Input
+                    disabled={true}
+                    id="companyName"
+                    name="companyName"
+                    type="text"
+                    value=""
+                  >
+                    <input
+                      className="form-control"
+                      disabled={true}
+                      id="companyName"
+                      name="companyName"
+                      type="text"
+                      value=""
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <br />
+          <FormGroup
+            row={true}
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Label
+                for="contactEmail"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <label
+                  className="col-sm-2 col-form-label"
+                  htmlFor="contactEmail"
+                >
+                   Email
+                </label>
+              </Label>
+              <Col
+                sm={3}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Input
+                    disabled={true}
+                    id="contactEmail"
+                    name="contactEmail"
+                    type="email"
+                    value={null}
+                  >
+                    <input
+                      className="form-control"
+                      disabled={true}
+                      id="contactEmail"
+                      name="contactEmail"
+                      type="email"
+                      value={null}
+                    />
+                  </Input>
+                </div>
+              </Col>
+              <Label
+                for="contactPhone"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <label
+                  className="col-sm-2 col-form-label"
+                  htmlFor="contactPhone"
+                >
+                  Contact Phone
+                </label>
+              </Label>
+              <Col
+                sm={3}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Input
+                    disabled={true}
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="number"
+                    value={null}
+                  >
+                    <input
+                      className="form-control"
+                      disabled={true}
+                      id="contactNumber"
+                      name="contactNumber"
+                      type="number"
+                      value={null}
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <br />
+          <FormGroup
+            row={true}
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Label
+                for="city"
+                sm={1}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <label
+                  className="col-sm-1 col-form-label"
+                  htmlFor="city"
+                >
+                  Password
+                </label>
+              </Label>
+              <Col
+                sm={2}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-2"
+                >
+                  <Input
+                    disabled={true}
+                    id="city"
+                    name="city"
+                    type="text"
+                    value=""
+                  >
+                    <input
+                      className="form-control"
+                      disabled={true}
+                      id="city"
+                      name="city"
+                      type="text"
+                      value=""
+                    />
+                  </Input>
+                </div>
+              </Col>
+              <Label
+                for="state"
+                sm={1}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <label
+                  className="col-sm-1 col-form-label"
+                  htmlFor="state"
+                >
+                  Currency
+                </label>
+              </Label>
+              <Col
+                sm={2}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-2"
+                >
+                  <Input
+                    disabled={true}
+                    id="currency"
+                    name="currency"
+                    type="select"
+                    value=""
+                  >
+                    <select
+                      className="form-control"
+                      disabled={true}
+                      id="currency"
+                      name="currency"
+                      value=""
+                    >
+                      <option
+                        value="USD"
+                      >
+                        USD
+                      </option>
+                      <option
+                        value="KWD"
+                      >
+                        KWD
+                      </option>
+                      <option
+                        value="BHD"
+                      >
+                        BHD
+                      </option>
+                      <option
+                        value="GBP"
+                      >
+                        GBP
+                      </option>
+                      <option
+                        value="EUR"
+                      >
+                        EUR
+                      </option>
+                      <option
+                        value="CAD"
+                      >
+                        CAD
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+              <Label
+                for="country"
+                sm={1}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <label
+                  className="col-sm-1 col-form-label"
+                  htmlFor="country"
+                >
+                  Language
+                </label>
+              </Label>
+              <Col
+                sm={2}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-2"
+                >
+                  <Input
+                    disabled={true}
+                    id="language"
+                    name="language"
+                    type="select"
+                    value=""
+                  >
+                    <select
+                      className="form-control"
+                      disabled={true}
+                      id="language"
+                      name="language"
+                      value=""
+                    >
+                      <option
+                        value="Deutsch"
+                      >
+                        Deutsch
+                      </option>
+                      <option
+                        value="Español"
+                      >
+                        Español
+                      </option>
+                      <option
+                        value="Français"
+                      >
+                        Français
+                      </option>
+                      <option
+                        value="Bahasa Indonesia"
+                      >
+                        Bahasa Indonesia
+                      </option>
+                      <option
+                        value="Italiano"
+                      >
+                        Italiano
+                      </option>
+                      <option
+                        value="Nederlands"
+                      >
+                        Nederlands
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            row={true}
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Label
+                for="exampleText"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <label
+                  className="col-sm-2 col-form-label"
+                  htmlFor="exampleText"
+                >
+                  Timezone
+                </label>
+              </Label>
+              <Col
+                sm={8}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-8"
+                >
+                  <Input
+                    disabled={true}
+                    id="exampleText"
+                    name="text"
+                    type="select"
+                    value={null}
+                  >
+                    <select
+                      className="form-control"
+                      disabled={true}
+                      id="exampleText"
+                      name="text"
+                      value={null}
+                    >
+                      <option
+                        value="(GMT-11:00) American Samoa"
+                      >
+                        (GMT-11:00) American Samoa
+                      </option>
+                      <option
+                        value="(GMT-11:00) Midway Island"
+                      >
+                        (GMT-11:00) Midway Island
+                      </option>
+                      <option
+                        value="(GMT-10:00) Hawaii"
+                      >
+                        (GMT-10:00) Hawaii
+                      </option>
+                      <option
+                        value="(GMT-09:00) Alaska"
+                      >
+                        (GMT-09:00) Alaska
+                      </option>
+                      <option
+                        value="(GMT-08:00) Tijuana"
+                      >
+                        (GMT-08:00) Tijuana
+                      </option>
+                      <option
+                        value="(GMT-07:00) Arizona"
+                      >
+                        (GMT-07:00) Arizona
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            check={true}
+            row={true}
+            tag="div"
+          >
+            <div
+              className="row form-check"
+            >
+              <Col
+                sm={
+                  Object {
+                    "offset": 5,
+                    "size": 4,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-4 offset-sm-5"
+                >
+                  <Button
+                    color="secondary"
+                    style={
+                      Object {
+                        "height": 50,
+                        "width": 150,
+                      }
+                    }
+                    tag="button"
+                  >
+                    <button
+                      aria-label={null}
+                      className="btn btn-secondary"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "height": 50,
+                          "width": 150,
+                        }
+                      }
+                    >
+                      Edit
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+        </form>
+      </Form>
+    </div>
+  </div>
+</UserProfile>
+`;

@@ -53,6 +53,7 @@ handleSearchReset(e)
         console.log(`Error in componentDidMount of RegisteredStudents: ${err}`);
         window.alert('Error in connecting to server');
      });
+     window.location.reload();
 
 }
 

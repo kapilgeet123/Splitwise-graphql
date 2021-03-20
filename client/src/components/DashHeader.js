@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 
 import '../styles/dashHeader.css'
  const DashHeader = (props)=>{
@@ -11,7 +11,7 @@ import '../styles/dashHeader.css'
      
      <div className = "Dashfloat">
      <NavLink to = "/login"><button className = "logoutbtn" onClick = {()=>{
-     
+     window.localStorage.clear();
      }
      }>Log Out</button></NavLink>
      <NavLink to = "/UserProfile" ><button className = "logoutbtn">View profile</button></NavLink>
@@ -21,7 +21,7 @@ import '../styles/dashHeader.css'
 
      
       <img className = "profile" src={require('../images/person-profile.png')} alt="" srcset=""/>
-      <label htmlFor="">{props.user.username}</label>
+      {/* <label htmlFor="">{props.user.username}</label> */}
     
       </div>
     
@@ -36,6 +36,6 @@ const mapStateToProps = state => {
   };
 };
 
-const fn = connect(mapStateToProps);
-export default fn(DashHeader);
+
+export default (DashHeader);
 

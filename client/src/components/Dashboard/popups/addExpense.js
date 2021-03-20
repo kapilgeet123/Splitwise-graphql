@@ -2,12 +2,12 @@ import React from "react";
 import "../../../styles/frndPop.css";
 import Chips, { Chip } from "react-chips";
 import {instance} from "../../../utils/AxiosConfig";
-import { store } from "../../../redux/store";
-import { userActionCreator } from "../../../redux/actionCreator/userAction";
+
+
 import { withRouter } from "react-router-dom";
 import axios from 'axios';
 import Groups from "../../Groups";
-import { serverIp, serverPort } from '../../../components/config';
+import { serverIp, serverPort } from '../../config';
 class AddExpense extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ class AddExpense extends React.Component {
     this.state = {
       chips: [],
       registeredStudents:[]
- //registeredStudents
+ //registeredStudentsCan't resolve '../../../redux/actionCreator/userAction'
     };
     
   }
@@ -189,4 +189,4 @@ class AddExpense extends React.Component {
 }
 
 
-export default (AddExpense);
+export default AddExpense;

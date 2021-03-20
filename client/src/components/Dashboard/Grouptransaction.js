@@ -75,10 +75,29 @@ returnRegisteredStudents() {
                 
                 </Card.Subtitle>
                 <Card.Text>
-                  <b>Career Objective</b>
+                  <b>Transaction data </b>
                   {' '}
                   <br />
-                  {eachStudent.billid}
+                  <b>Transaction data</b>
+                      {' '}
+                      <br />
+                      <b>Bill iD</b>
+                      {eachStudent.billid}
+                      <br/>
+                      <b>Groupname</b>
+                      {eachStudent.group_name}
+                      <br/>
+                      <b>Transaction description </b>
+                  {eachStudent.description}
+                  <br/>
+                  <b>For </b>
+                  {eachStudent.email}
+                  <br/>
+                  <b>CreatedDate</b>
+                  {eachStudent.createddate}
+                  <br/>
+                  <b>Paid By </b>
+                  {eachStudent.paidby}
                 </Card.Text>
               </Card.Body>
             </Card>

@@ -83,6 +83,7 @@ const FetchExp = (req, res,pool) => {
       
            
          calculationSql = `select email,sum(mean) as sum from BILL group by email`;
+        // calculationSql = `select email,sum(mean) as sum from BILL where paid
       console.log(calculationSql);
         pool.query(calculationSql, (insertError, result) => {
           if (insertError) {
@@ -90,7 +91,7 @@ const FetchExp = (req, res,pool) => {
             res.send('Error');
           }
           
-          console.log(`fetched total data `);
+          console.log("fetched total data ");
         res.send(result);
      
        });

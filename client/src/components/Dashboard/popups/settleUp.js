@@ -2,10 +2,9 @@ import React from 'react';
 import '../../../styles/frndPop.css';
 import { PaidBy } from './paidBy';
 import { PaidTo } from './paidTo';
-import { connect } from "react-redux";
+
 import { instance } from '../../../utils/AxiosConfig';
-import { store } from '../../../redux/store';
-import { userActionCreator } from '../../../redux/actionCreator/userAction';
+
 import axios from 'axios';
 import { serverIp, serverPort } from '../../config';
 
@@ -40,11 +39,14 @@ import { serverIp, serverPort } from '../../config';
         this.setState({...this.state,byValue: event});
     }
     toValue(event){
-     if(event == this.props.eve) 
-     event = "you";
+    //  if(event == this.props.eve) 
+    //  event = "you";
           
          this.setState({...this.state,toValue: event});
      }
+    //  close(){
+    //   window.location.reload();
+    //  }
 
     
     paidTo(){

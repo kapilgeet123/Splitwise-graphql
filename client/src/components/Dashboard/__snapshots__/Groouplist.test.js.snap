@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<Grouplist>
+  <div>
+    <ul>
+      <li
+        className="friendlist"
+      >
+        <i
+          class="fas fa-user"
+        />
+      </li>
+    </ul>
+  </div>
+</Grouplist>
+`;

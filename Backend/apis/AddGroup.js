@@ -30,8 +30,8 @@ const AddUserGroup = (req, res,pool) => {
   console.log('Inside addusergroup module:');
   console.log(req.body);
   let j = req.body;
-  // const groupname = req.body.groupname;
-  // const email = req.body.email;
+  const groupname = req.body.groupname;
+  const email = req.body.email;
   let values=j.reduce((o,a)=>{
     let ini=[];
     ini.push(a.groupname);
@@ -50,15 +50,17 @@ console.log(values);
         let insertSql = '';
      
           
-        insertSql = `INSERT INTO ${tableName}  (groupname,emailId,invite) VALUES ?`;
+         insertSql = `INSERT INTO ${tableName}  (groupname,emailId,invite) VALUES ?`;
       console.log(insertSql);
-        pool.query(insertSql,[values], (insertError, result) => {
+         pool.query(insertSql,[values], (insertError, result) => {
+         
           if (insertError) {
             console.log(insertError);
             res.send('Error');
           }
           console.log(`Group:  created in Table: ${tableName} `);
-        res.send(`Group:  created in Table: ${tableName} `);
+       res.send(`Group:  created in Table: ${tableName} `);
+      
      console.log("jhala");
        });
 }

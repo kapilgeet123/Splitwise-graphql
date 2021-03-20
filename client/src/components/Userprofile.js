@@ -115,7 +115,7 @@ return Data;
       profileSrc = this.state.profile_picture_url;
     }
     let buttons = '';
-    if (!this.props.match.params.id) {
+  //  if (!this.props.match.params.id) {
       buttons = (
         <FormGroup check row>
           <Col sm={{ size: 4, offset: 5 }}>
@@ -123,7 +123,7 @@ return Data;
           </Col>
         </FormGroup>
       );
-    }
+ //   }
     return (
       <div>
         
