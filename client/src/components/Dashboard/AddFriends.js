@@ -7,8 +7,10 @@ import axios from 'axios';
 import { serverIp, serverPort } from '../config';
 import  Grouptransaction  from './Grouptransaction';
 import { Route, Switch,Link } from 'react-router-dom';
-    
-    
+import { groupnamefetch } from '../../queries/tripsquery'    
+import PropTypes from 'prop-types';    
+import { graphql} from 'react-apollo';
+import {flowRight as compose} from 'lodash';
 class AddFriends extends React.Component {
     constructor(props) {
         super(props);
@@ -37,8 +39,37 @@ class AddFriends extends React.Component {
             console.log(`Error in componentDidMount of RegisteredStudents: ${err}`);
             window.alert('Error in connecting to server');
           });
-      }
-    
+      // console.log("in componenet mount ")
+      //   this.props.groupnamefetch({
+      //     variables: {
+      //         // email: localStorage.getItem('email_current')
+      //         emailId : "logan@gmail.com"
+      //     }
+      // })
+      //     .then(response => {
+      //         console.log("Groupnames are: ", response.data.groupnamefetch)
+      //         const pageCount = Math.ceil(response.data.groupnamefetch.length / 2)
+      //         this.setState({
+      //             registerdStudents: response.data.groupnamefetch,
+      //             displayedContacts: response.data.groupnamefetch,
+      //            // pageCount: pageCount
+      //         // }, () => {
+      //         //     console.log(this.state.filteredBookingDetails)
+      //         //     const filteredBookingDetails = this.state.filteredBookingDetails
+      //         //     this.setState({
+      //         //         paginatedBookingDetails: filteredBookingDetails.slice(0, 2)
+      //         //     })
+      //         // })
+      //     }).catch((err) => {
+      //           console.log(`Error in componentDidMount of RegisteredStudents: ${err}`);
+      //           window.alert('Error in connecting to server');
+      //         });
+      
+      
+      
+      
+     // })
+    }
     searchHandler (event) {
         let searcjQery = event.target.value.toLowerCase();
         const values =[];
@@ -67,7 +98,7 @@ class AddFriends extends React.Component {
                <Link to={`/transactionma:${eachStudent.groupname}`}> <span>{eachStudent.groupname} </span></Link>
                
                 <Route path={`/transactionma:${eachStudent.groupname}`} component={Grouptransaction}/> 
-                   
+                
                   
             </div>
           );
@@ -127,4 +158,8 @@ render()
     )
 }
 }
-export default AddFriends;
+//export default AddFriends;
+
+export default compose(
+  graphql(groupnamefetch, { name: "groupnamefetch" })
+)(AddFriends);

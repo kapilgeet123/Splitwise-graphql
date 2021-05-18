@@ -1,11 +1,14 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-
-  host: "splitwisedb2.cbcmbjvjxysq.us-east-2.rds.amazonaws.com", // ip address of server running mysql
+  connectionLimit: 100,
+  host: "graphql.cbcmbjvjxysq.us-east-2.rds.amazonaws.com", // ip address of server running mysql
     user: 'admin',
     password: 'admin12345',
-    database: 'spliwise',    
+    database: 'spliwise', 
+    port: 3306,  
+    debug: false,
+    multipleStatements: true 
 });
 
 module.exports = pool;

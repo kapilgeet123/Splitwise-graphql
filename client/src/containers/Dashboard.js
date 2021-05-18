@@ -75,7 +75,8 @@ componentDidMount(){
   // })
 
 //const mainarray=[];
-axios.post(`${serverIp}:${serverPort}/getuserdata`,{emailId: localStorage.getItem('email_current')})
+// axios.post(`${serverIp}:${serverPort}/getuserdata`,{emailId: localStorage.getItem('email_current')})
+axios.post(`${serverIp}:${serverPort}/getuserdata`)
 .then((response) => {
   console.log('AddUsergroup Response Data');
   console.log(response.data);
@@ -124,8 +125,13 @@ settle(){
 }
 render(){
     const values =[];
-    this.state.mainarray.map((eachEvent) => values.push(eachEvent.username))
+    this.state.mainarray.map((eachEvent) => values.push(eachEvent.emailId))
     console.log(values);
+    if (!localStorage.getItem('email_current')) {
+      window.localStorage.clear();
+      window.sessionStorage.clear();
+      window.location.href = '/login';
+    }
     
     return(
     <div >
@@ -146,7 +152,7 @@ render(){
         <br/>
         <br/>
         <br/>
-        <Invitation/>
+        {/* <Invitation/> */}
         </div>
     </div>
 )

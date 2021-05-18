@@ -213,6 +213,11 @@ else{
 
 }
 render(){
+  if (!localStorage.getItem('email_current')) {
+    window.localStorage.clear();
+    window.sessionStorage.clear();
+    window.location.href = '/login';
+  }
    return (
     <div>
      <Dropdown

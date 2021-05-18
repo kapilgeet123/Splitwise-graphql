@@ -6,8 +6,8 @@
  
        
             
-          // searchSql = `Select username,emailId from ${tableName} `;
-          searchSql = `Select * FROM ${tableName} WHERE emailId = '${emailId}'`;
+           searchSql = `Select username,emailId from ${tableName} `;
+          // searchSql = `Select * FROM ${tableName} WHERE emailId = '${emailId}'`;
         console.log(searchSql);
           pool.query(searchSql, (insertError, result) => {
             if (insertError) {

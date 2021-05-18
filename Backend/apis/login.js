@@ -1,4 +1,4 @@
-const login = (req, res, pool) => {
+const login = (req, res,bcrypt,pool) => {
   console.log('Inside login module:');
   console.log(req.body);
   const { emailId } = req.body;
@@ -29,7 +29,21 @@ const login = (req, res, pool) => {
       const foundUser = searchResult[0];
       console.log(`User found in table ${tableName}`);
       console.log(foundUser);
-      res.send (foundUser);
+      //res.send (foundUser);
+      bcrypt.compare(password, foundUser.password, (pwdCompareError, pwdCompareResult) => {
+        if (pwdCompareError) {
+          console.log(`Password Compare Error: ${pwdCompareError}`);
+          res.send('Error in comparing Password');
+        }
+        console.log("pwd compare");
+        console.log(pwdCompareResult);
+        if (!pwdCompareResult) {
+          res.send('Wrong Password');
+        } else {
+          console.log('Correct password given');
+          res.send(foundUser);
+        }
+      });
 
     }
   });

@@ -13,7 +13,7 @@ import {
      registeredStudents: [],
     };
     this.returnRegisteredStudents = this.returnRegisteredStudents.bind(this);
-    
+    this.handleSearchReset = this.handleSearchReset.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +35,7 @@ import {
 
 handleSearchReset(e)
 {
+//  e.preventDefault();
   const data =
   {
       email : localStorage.getItem('email_current'),
@@ -53,7 +54,7 @@ handleSearchReset(e)
         console.log(`Error in componentDidMount of RegisteredStudents: ${err}`);
         window.alert('Error in connecting to server');
      });
-     window.location.reload();
+    window.location.reload(false);
 
 }
 
@@ -81,7 +82,7 @@ handleSearchReset(e)
 
           <div className="fitting">
              <label htmlFor="">{eachStudent.groupname}</label>
-             <button onClick={this.handleSearchReset()}> Yes </button>
+             <button onClick={this.handleSearchReset}> Yes </button>
              <button> No </button>
 
              {/* <p style = {{color:"red"}}>$ {({eachStudent.sum}>=0)? '"gets back"' {eachStudent.sum} :"gives back" {eachStudent.sum} }</p> */}

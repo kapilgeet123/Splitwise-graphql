@@ -23,7 +23,7 @@ class Middle extends React.Component {
 
   componentDidMount() {
   //  localStorage.setItem("x",1)
-    axios.post(`${serverIp}:${serverPort}/gettransactionsdatatotal`)
+    axios.post(`${serverIp}:${serverPort}/gettransactionsdatatotal`,{ email: localStorage.getItem('email_current') })
   
   .then((response) => {
     console.log('Response data in componentDidMount');
@@ -221,15 +221,19 @@ render()
           <ul>
           {(this.state.owed.length == 0)?<li>You do not owe anything</li>:this.state.owed.map(value=>
             <li>  
-            <img
+            {/* <img
               className="imgs"
               src={require("../../images/person-profile.png")}
               alt=""
               align="left"
-            />
+            /> */}
             <div className="inline">
-              <h5>{value.email}</h5>
-              <span>will get ${value.sum}</span>
+             {(value.email == localStorage.getItem('email_current'))?<div><h5>{value.email}</h5> <span>will get ${value.sum}</span></div>:<h5> </h5>}
+            
+              {/* // <h5>{value.email}</h5> */}
+             
+           {/* </h5>
+          }  */}
             </div>
           </li>
             )}

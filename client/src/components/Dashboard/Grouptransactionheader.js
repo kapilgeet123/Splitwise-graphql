@@ -16,16 +16,17 @@ import AddExpense from './popups/AddExpense';
         this.state = {
             exp : 0,
             registeredStudents: [],
-            
+            showExp :false
         };
 
-        this.state = {showExp:true}
+        
         this.Leavegroup = this.Leavegroup.bind(this);
-       
+       this.showExpense = this.showExpense.bind(this);
       }
     
 
-      showExpense(){
+      showExpense(e){
+        console.log("in showexp group function");
         this.setState({...this.state,showExp: !this.state.showExp});
         console.log(this.state.showExp);
     }  
@@ -43,6 +44,9 @@ import AddExpense from './popups/AddExpense';
      .then((response) => {
        console.log('Response data in componentDidMount');
        console.log(response.data);
+       if (response.data === 'Clear you dues') {
+        window.alert('Clear you dues');
+      }
        
    
      }).catch((err) => {
@@ -65,13 +69,15 @@ render(){
           <h3>Dashboard</h3>
          
           
-          <button className = "logoutbtn">
+          {/* <button className = "logoutbtn">
             Add an expense
-          </button>
+          </button> */}
        <button onClick={this.Leavegroup} className = "logoutbtn">  Leave</button>
          
-          
-          
+       <button  onClick={this.showExpense}>
+            Add an expense
+          </button>
+{/* <AddExpense groupname = {res} friend = {this.showExpense.bind(this)}/>} */}
           {this.state.showExp && <AddExpense groupname = {res} friend = {this.showExpense.bind(this)}/>}
         </div>
 

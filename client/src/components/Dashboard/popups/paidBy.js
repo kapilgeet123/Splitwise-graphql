@@ -6,9 +6,9 @@ export  const PaidBy = (props)=>{
           <div className = "frnd-header">   
         <span>Paid By</span>
         </div>
-        {console.log(props.list)}
+       
         <ul className = "myList">
-        
+       {/* {console.log(this.props)} */}
         {props.list.map((value)=>{
                return  <li onClick = {(event)=>{
                     props.byValue(event.target.id);

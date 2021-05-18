@@ -29,19 +29,26 @@ import { serverIp, serverPort } from '../../config';
     }
     byValue(event){
        
-     if(event == this.props.eve) 
-     event = "you"
-     else {
-        event = event.slice(0,6); 
-        event = event+"..."
-     }
+    //  if(event == localStorage.getItem('email_current') ) 
+    //  event = "you"
+    //  else {
+      
+      //  event = event.slice(0,6); 
+    //    event = event+"..."
+//    }
        
         this.setState({...this.state,byValue: event});
     }
     toValue(event){
-    //  if(event == this.props.eve) 
+      console.log(this.props.eve)
+    //  if(event == localStorage.getItem('email_current')) 
     //  event = "you";
-          
+    //  else {
+      
+  //    event = event.slice(0,6); 
+  //    event = event+"..."
+ // }
+          console.log(event);
          this.setState({...this.state,toValue: event});
      }
     //  close(){
@@ -80,15 +87,15 @@ import { serverIp, serverPort } from '../../config';
             alert("you must enter an amount");
             return;
          }
-         else if(this.state.toValue != "you" && this.state.byValue != "you"){
-            alert("you cannot add an Expense that does not involve yourself");
-         }
+        //  else if(this.state.toValue != "you" && this.state.byValue != "you"){
+        //     alert("you cannot add an Expense that does not involve yourself");
+        //  }
          else if(this.state.toValue == this.state.byValue){
             alert("you can't add money to yourself");
            }
        else{ 
            var sender;
-            if(this.state.toValue == "you"){
+            if(this.state.toValue == localStorage.getItem('email_current')){
                 this.val = "-" + this.val;
                 sender =  this.state.byValue;
             }else sender = this.state.toValue;
@@ -104,7 +111,7 @@ import { serverIp, serverPort } from '../../config';
         } 
     const data =
         {
-            email : localStorage.getItem('email_current'),
+            email : this.state.byValue,
             toValue: this.state.toValue
         }
         console.log(data);
@@ -122,7 +129,7 @@ import { serverIp, serverPort } from '../../config';
           window.alert('Error in add exp API axios Post call');
         });
       
-
+        window.location.reload(false);
     }
   render(){ 
     console.log(this.props);
@@ -158,7 +165,7 @@ import { serverIp, serverPort } from '../../config';
         
         {this.state.paidBy && <PaidBy list = {this.props.eve} byValue = {this.byValue.bind(this)}/>}  
         
-        {this.paidTo()}
+        {this.state.paidTo && this.paidTo()}
        
 
         </div>

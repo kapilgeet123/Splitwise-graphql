@@ -3,6 +3,7 @@ import {
   Col, Button, Form, FormGroup, Label, Input,
 } from 'reactstrap';
 import { Image } from 'react-bootstrap';
+import DashHeader from './DashHeader';
 import axios from 'axios';
 import { serverIp, serverPort } from '../components/config';
 //import CustomNavBar from '../../NavBar/CustomNavBar';
@@ -123,10 +124,15 @@ return Data;
           </Col>
         </FormGroup>
       );
+      if (!localStorage.getItem('email_current')) {
+        window.localStorage.clear();
+        window.sessionStorage.clear();
+        window.location.href = '/login';
+      }
  //   }
     return (
       <div>
-        
+        <DashHeader/>
         <br />
 
         <div>
@@ -176,7 +182,7 @@ return Data;
                 </Input>
               </Col>
               <Label for="country" sm={1}>Language</Label>
-              <Col sm={2}>
+              <Col sm={4}>
                 <Input type="select" name="language" id="language" value={this.capitalize(this.state.language)} disabled >
                 {array1.map((text) => (
                 <option value={text}>

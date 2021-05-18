@@ -7,6 +7,8 @@ import SettleUp from '../components/Dashboard/popups/settleUp';
 //import ViewProfile from './ViewProfile'
 import { Hint } from 'react-autocomplete-hint';
 import DashHeader from '../components/DashHeader';
+import { Mutation } from 'react-apollo';
+import { addgroupmutation } from '../mutations/signup';
 //import {View, StyleSheet, ImageBackground, Alert} from 'react-native';
 //import {Container, Header, Content, Left, Body, Right, Button, Icon, Title, Text, Item, Form, Label, Input, Toast} from 'native-base';
 //import SelectMultiple from 'react-native-select-multiple';
@@ -74,7 +76,7 @@ componentDidMount(){
     console.log(`In catch of axios post call to get user data ${err}`);
     window.alert('Error in Add USERgroup API axios Post call');
  });
- //console.log({thus.state.mainarray});
+//  console.log({thus.state.mainarray});
  
 // console.log(this.state)
 // const happy =[{a:1}];
@@ -88,10 +90,16 @@ componentDidMount(){
     // }
  
     onChangeUserNameHandler(e) {
-   this.setState({
+   this.setState({  
      groupname: e.target.value,
-   });
- }
+     //grouppicture :
+    // createdby:  localStorage.getItem('email_current'),
+    // createdate: Date().toLocaleString(),
+    //grouppicture:  
+  })
+
+   };
+ 
   
  
 
@@ -134,79 +142,154 @@ componentDidMount(){
 
 
 
- onSignUpSubmit(e) {
-   e.preventDefault();
-   const data = {
-      groupname: this.state.groupname.toLowerCase(),
-      createdby : localStorage.getItem('email_current'),
-      createdate:Date().toLocaleString()
-        };
-      console.log(data);
+//  onSignUpSubmit(data1) {
+//    console.log("inside onsignup submit");
+//   // e.preventDefault();
+//    const data = {
+//       groupname: this.state.groupname.toLowerCase(),
+//       createdby : localStorage.getItem('email_current'),
+//       createdate:Date().toLocaleString()
+//         };
+//       console.log(data);
       
-    axios.defaults.withCredentials = true;
-    axios.post(`${serverIp}:${serverPort}/AddGroup`, data)
-      .then((response) => {
-        console.log('Addgroup Response Data');
-        console.log(response.data);
-      if (response.data === 'Error') {
-          window.alert('Error while querying the Database');
-        } else {
-          window.alert('Successfully Added the group'); 
-		  localStorage.setItem('groupname', response.data.groupname);
-			   localStorage.setItem('groupid', response.data.groupid);
-			   localStorage.setItem('createdby', response.data.createdby);
-			   localStorage.setItem('createddate', response.data.createddate);
-			   localStorage.setItem('grouppicture', response.data.groupicture);       
-        }
-      }).catch((err) => {
-        console.log(`In catch of axios post call to add group ${err}`);
-        window.alert('Error in Add group API axios Post call');
-      });
+//     // axios.defaults.withCredentials = true;
+//     // axios.post(`${serverIp}:${serverPort}/AddGroup`, data)
+//     //   .then((response) => {
+//     //     console.log('Addgroup Response Data');
+//     //     console.log(response.data);
+//     //   if (response.data === 'Error') {
+//     //       window.alert('Error while querying the Database');
+//     //     } else {
+//     //       window.alert('Successfully Added the group'); 
+// 		//   localStorage.setItem('groupname', response.data.groupname);
+// 		// 	   localStorage.setItem('groupid', response.data.groupid);
+// 		// 	   localStorage.setItem('createdby', response.data.createdby);
+// 		// 	   localStorage.setItem('createddate', response.data.createddate);
+// 		// 	   localStorage.setItem('grouppicture', response.data.groupicture);       
+//     //     }
+//     //   }).catch((err) => {
+//     //     console.log(`In catch of axios post call to add group ${err}`);
+//     //     window.alert('Error in Add group API axios Post call');
+//     //   });
 
 
 
-      const userdata = [];
-      userdata.push([localStorage.getItem('email_current'),"no"]);
-      console.log(userdata);
-       console.log(this.state.user)
-       this.state.user.forEach((eachObj) => {
-      userdata.push([eachObj.email,eachObj.invite]);
+//       const userdata = [];
+//       userdata.push([localStorage.getItem('email_current'),"no"]);
+//       console.log(userdata);
+//        console.log(this.state.user)
+//        this.state.user.forEach((eachObj) => {
+//       userdata.push([eachObj.email,eachObj.invite]);
+//      });
+//        console.log(userdata);
+//       const output=[]
+//      let tmp;
+// localStorage.setItem('groupname',this.state.groupname);
+
+//      for(let i = 0; i < userdata.length; i++){  
+//        tmp = {groupname : this.state.groupname,email: userdata[i][0],invite : userdata[i][1] };
+//        output.push(tmp);      
+             
+//     }
+ 
+//      console.log(output)
+ 
+//        sessionStorage.setItem('group_length',output.length);
+     
+//     //   axios.post(`${serverIp}:${serverPort}/AddUserGroup`, output)
+//     //   .then((response) => {
+//     //     console.log('AddUsergroup Response Data');
+//     //     console.log(response.data);
+//     //   if (response.data === 'Error') {
+//     //       window.alert('Error while querying the Database');
+//     //     } else {
+//     //       window.alert('Successfully Added the Usergroup'); 
+		       
+//     //     }
+//     //   }).catch((err) => {
+//     //     console.log(`In catch of axios post call to add Usergroup ${err}`);
+//     //     window.alert('Error in Add USERgroup API axios Post call');
+//     //  });
+     
+//   }
+onSignUpSubmit(e) {
+  e.preventDefault();
+  const data = {
+     groupname: this.state.groupname.toLowerCase(),
+     createdby : localStorage.getItem('email_current'),
+     createdate:Date().toLocaleString()
+       };
+     console.log(data);
+     
+   axios.defaults.withCredentials = true;
+   axios.post(`${serverIp}:${serverPort}/AddGroup`, data)
+     .then((response) => {
+       console.log('Addgroup Response Data');
+       console.log(response.data);
+     if (response.data === 'Error') {
+         window.alert('Error while querying the Database');
+       } else {
+         window.alert('Successfully Added the group'); 
+     localStorage.setItem('groupname', response.data.groupname);
+        localStorage.setItem('groupid', response.data.groupid);
+        localStorage.setItem('createdby', response.data.createdby);
+        localStorage.setItem('createddate', response.data.createddate);
+        localStorage.setItem('grouppicture', response.data.groupicture);       
+       }
+     }).catch((err) => {
+       console.log(`In catch of axios post call to add group ${err}`);
+       window.alert('Error in Add group API axios Post call');
      });
-       console.log(userdata);
-      const output=[]
-     let tmp;
+
+
+
+     const userdata = [];
+     userdata.push([localStorage.getItem('email_current'),"no"]);
+     console.log(userdata);
+      console.log(this.state.user)
+      this.state.user.forEach((eachObj) => {
+     userdata.push([eachObj.email,eachObj.invite]);
+    });
+      console.log(userdata);
+     const output=[]
+    let tmp;
 sessionStorage.setItem('groupname',this.state.groupname);
 
-     for(let i = 0; i < userdata.length; i++){  
-       tmp = {groupname : this.state.groupname,email: userdata[i][0],invite : userdata[i][1] };
-       output.push(tmp);      
-             
-    }
- 
-     console.log(output)
- 
-       sessionStorage.setItem('group_length',output.length);
-     
-      axios.post(`${serverIp}:${serverPort}/AddUserGroup`, output)
-      .then((response) => {
-        console.log('AddUsergroup Response Data');
-        console.log(response.data);
-      if (response.data === 'Error') {
-          window.alert('Error while querying the Database');
-        } else {
-          window.alert('Successfully Added the Usergroup'); 
-		       
-        }
-      }).catch((err) => {
-        console.log(`In catch of axios post call to add Usergroup ${err}`);
-        window.alert('Error in Add USERgroup API axios Post call');
-     });
+    for(let i = 0; i < userdata.length; i++){  
+      tmp = {groupname : this.state.groupname,email: userdata[i][0],invite : userdata[i][1] };
+      output.push(tmp);      
+            
+   }
 
-  }
-   
+    console.log(output)
+
+      sessionStorage.setItem('group_length',output.length);
+    
+     axios.post(`${serverIp}:${serverPort}/AddUserGroup`, output)
+     .then((response) => {
+       console.log('AddUsergroup Response Data');
+       console.log(response.data);
+     if (response.data === 'Error') {
+         window.alert('Error while querying the Database');
+       } else {
+         window.alert('Successfully Added the Usergroup'); 
+          
+       }
+     }).catch((err) => {
+       console.log(`In catch of axios post call to add Usergroup ${err}`);
+       window.alert('Error in Add USERgroup API axios Post call');
+    });
+
+ }
+  
    render()
 
      {
+      // if (!localStorage.getItem('email_current')) {
+      //   window.localStorage.clear();
+      //   window.sessionStorage.clear();
+      //   window.location.href = '/login';
+      // }
      
        let {user} =this.state
        console.log(this.state.autocomplete);
@@ -228,6 +311,7 @@ sessionStorage.setItem('groupname',this.state.groupname);
       </div>
 	  </div>
        <form onSubmit={this.onSignUpSubmit} onChange={this.handleChange}>
+       {/* <form  onChange={this.handleChange}> */}
 	   <h2>Start a group</h2>
     <div class="label1">
 		My Group shall be called
@@ -302,6 +386,30 @@ sessionStorage.setItem('groupname',this.state.groupname);
  
    
  <button type="submit" className="btn">Confirm</button>
+ <div>
+              {/* <Mutation
+                mutation={addgroupmutation}
+                variables={{
+                  groupname: this.state.groupname,
+                  createdby: this.state.emailId.toLowerCase(),
+                 
+                  createdate: Date().toLocaleString(),
+                  grouppicture: "dshfjsdfj",
+                }}
+                onCompleted={(data1) => this.onSignUpSubmit(data1)}
+              >
+                {(mutation) => (
+                  <button
+                    onClick={mutation}
+                    className="btn"
+                    
+                  >
+                    Confirm
+                  </button>
+                )}
+              </Mutation>
+              */}
+     </div>
       </form>
    </div>
 

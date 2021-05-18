@@ -44,7 +44,7 @@ console.log(values);
 
 const FetchExp = (req, res,pool) => {
   console.log('Inside fetchexp module:');
-
+     
 
    
  
@@ -54,7 +54,7 @@ const FetchExp = (req, res,pool) => {
    
          let insertSql = '';
       
-           
+        // calculationSql = `select email,sum(mean) as sum from BILL where`;  
          calculationSql = `select email,sum(mean) as sum from BILL group by email`;
       console.log(calculationSql);
         pool.query(calculationSql, (insertError, result) => {
@@ -71,6 +71,7 @@ const FetchExp = (req, res,pool) => {
 
  const FetchExptotal = (req, res,pool) => {
   console.log('Inside fetchexptotal module:');
+  const {email} = req.body;
 
 
    
@@ -82,15 +83,15 @@ const FetchExp = (req, res,pool) => {
          let insertSql = '';
       
            
-         calculationSql = `select email,sum(mean) as sum from BILL group by email`;
-        // calculationSql = `select email,sum(mean) as sum from BILL where paid
+        // calculationSql = `select email,sum(mean) as sum from BILL group by email`;
+        calculationSql = `select email,mean as sum from BILL where paidby = '${email}'`
       console.log(calculationSql);
         pool.query(calculationSql, (insertError, result) => {
           if (insertError) {
            console.log(insertError);
             res.send('Error');
           }
-          
+          console.log(result);
           console.log("fetched total data ");
         res.send(result);
      
@@ -165,7 +166,7 @@ const FetchExp = (req, res,pool) => {
          console.log(`fetched werwer data from Bill `);
       // res.send(result);   
       count = res[0].count
-      meansum = ((res[0].sum- result1[0].sum)/count)
+      meansum = ((res[0].sum+ result1[0].sum)/count)
       
       console.log({meansum})
   updateSQL = `update BILL SET  mean = '0' where email = '${email}' `;
